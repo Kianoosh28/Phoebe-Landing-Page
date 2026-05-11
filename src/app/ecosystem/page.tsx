@@ -1,59 +1,78 @@
 import Link from "next/link";
-import { Coins, Users, Shield, ArrowRight, ScrollText } from "lucide-react";
+import { Coins, Users, Shield, ArrowRight, ScrollText, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const TOKEN_USES = [
+const MECHANICS = [
   {
-    title: "Stake to Forecast",
-    body: "Forecasters stake $PHOB on their predictions. Confidence becomes economic skin.",
+    title: "Pay $PHOB to follow",
+    body: "Users spend $PHOB to follow other forecasters. Following grants access to their predictions, arguments, analyses, and activity feed. Following is the only way a forecaster's signal enters your circle.",
   },
   {
-    title: "Earn for Accuracy",
-    body: "Calibrated forecasters earn $PHOB from the merit-weighted distribution pool.",
+    title: "Earn $PHOB through engagement",
+    body: "Phoebe is the sole distributor of $PHOB. Tokens are awarded freely based on forecasting accuracy, calibration, deliberation quality, and activity. There is no buy-in — users never trade money for tokens.",
   },
   {
-    title: "Govern Circle Rules",
-    body: "Token-holders vote on circle parameters, deliberation cadence, and weighting curves.",
+    title: "Your circle, your feed",
+    body: "You see only the activity of people in your circle. There is no aggregated public price to anchor on, no leaderboard to chase. The bandwagon effect is removed by construction, not by policy.",
   },
   {
-    title: "Access Studio Tier",
-    body: "Enterprise clients pay for Studio access in $PHOB — closing the value loop.",
+    title: "Engine-controlled supply",
+    body: "Because Phoebe alone issues $PHOB, the protocol shapes which forecasters can be followed and at what cost — and that lever is how we maintain blind, semi-blind, and open deliberation conditions.",
   },
 ];
 
 const CIRCLES = [
   {
     label: "Open Circle",
-    members: "Anyone · public",
-    desc: "Forecasters post predictions and arguments openly. Discoverability layer.",
+    members: "Public · low cost",
+    desc: "Members see each other's predictions, arguments, and reactions in real time. High discoverability for newcomers, broad consensus signal — but lower deliberation isolation.",
     color: "cyan",
   },
   {
     label: "Semi-Blind Circle",
-    members: "Invite · capped",
-    desc: "Members commit predictions privately, then reveal in synchronised waves. Bandwagon-resistant.",
+    members: "Curated · scheduled reveal",
+    desc: "Members commit predictions privately, then Phoebe releases them in synchronized reveal windows. Peer signal arrives at the reveal phase — bandwagon-resistant by design.",
     color: "amethyst",
   },
   {
     label: "Blind Circle",
-    members: "Curated experts",
-    desc: "Forecasts never cross-revealed until resolution. Reserved for high-stakes enterprise pilots.",
+    members: "Closed cohort · post-resolution",
+    desc: "Members never see each other's predictions until the question resolves. Pure independent signal, aggregated by merit. Reserved for the highest-stakes enterprise pilots.",
     color: "cyan",
+  },
+];
+
+const NOT_GAMBLING = [
+  {
+    title: "No buy-in",
+    body: "Users never trade their own money for $PHOB. The token is distributed exclusively by Phoebe based on engagement and performance — there is no exchange listing where outsiders can buy in.",
+  },
+  {
+    title: "No contingent payouts",
+    body: "Outcomes do not transfer money between counterparties. Phoebe has no order book, no settlement layer, and no win/lose mechanic priced in fiat or crypto.",
+  },
+  {
+    title: "No public price",
+    body: "There is no aggregated public probability to chase. Each user sees only their circle's signal — herding has no surface to attach to.",
+  },
+  {
+    title: "No financial sacrifice",
+    body: "The behavioural cleanliness of Phoebe's signal depends on users not having skin in the game. Their incentive is reputation and access, not return.",
   },
 ];
 
 const COMPLIANCE = [
   {
     title: "Not a prediction market",
-    body: "Phoebe does not match counterparties on contingent payouts. There is no order book. We are a forecasting protocol, not a derivatives venue.",
+    body: "Phoebe does not match counterparties on contingent payouts. There is no order book and no settlement layer. We are a forecasting protocol, not a derivatives venue.",
   },
   {
     title: "Utility-first token design",
-    body: "$PHOB is structured for staking, governance, and access — calibrated under MiCA-aligned utility-token guidance with EU counsel.",
+    body: "$PHOB is structured for access, governance, and engagement rewards — calibrated under MiCA-aligned utility-token guidance with EU counsel.",
   },
   {
     title: "KYC where required",
-    body: "Studio tier and high-stakes circles enforce KYC. Public circles remain open-access for research participation.",
+    body: "Studio tier and high-stakes blind circles enforce KYC. Open and Semi-Blind circles remain open-access for research participation under standard onboarding.",
   },
   {
     title: "Data sovereignty by default",
@@ -66,7 +85,7 @@ export default function Ecosystem() {
     <div className="pt-32 pb-12">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         {/* Hero */}
-        <div className="max-w-3xl mb-20">
+        <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <Coins size={12} className="text-amethyst" />
             Ecosystem
@@ -75,36 +94,45 @@ export default function Ecosystem() {
             <span className="bg-gradient-to-br from-amethyst-soft to-amethyst bg-clip-text text-transparent">
               $PHOB
             </span>{" "}
-            powers the circles.{" "}
-            <span className="text-mute-2">Circles power the engine.</span>
+            shapes the circle.{" "}
+            <span className="text-mute-2">The circle shapes the truth.</span>
           </h1>
           <p className="mt-6 text-[17px] leading-[1.55] text-mute-2 text-balance max-w-2xl">
-            The $PHOB token aligns forecasters, studios, and governors around a
-            single objective: better-calibrated probabilistic truth, distributed
-            and rewarded by merit.
+            Phoebe is the sole issuer of $PHOB. Users spend it to follow other
+            forecasters and unlock their feed — and that single primitive is
+            how we engineer blind, semi-blind, and open deliberation
+            conditions. No public price. No herding. No financial stake.
           </p>
         </div>
 
-        {/* $PHOB token */}
-        <section className="mb-24">
-          <div className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            $PHOB · The Utility Token
+        {/* Mechanic */}
+        <section className="mb-20">
+          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+            <Sparkles size={12} className="text-amethyst" />
+            How $PHOB Works
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {TOKEN_USES.map((u, i) => (
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
+            Follow with tokens. Build your circle.
+          </h2>
+          <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
+            The mechanic is deliberately small — but it is the entire reason
+            Phoebe&apos;s signal stays clean.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {MECHANICS.map((m, i) => (
               <div
-                key={u.title}
+                key={m.title}
                 className="relative rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6 overflow-hidden"
               >
-                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-amethyst/15 blur-3xl" />
+                <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-amethyst/15 blur-3xl pointer-events-none" />
                 <div className="relative">
                   <div className="font-mono text-[11px] text-amethyst tracking-widest mb-2">
-                    USE 0{i + 1}
+                    PRIMITIVE 0{i + 1}
                   </div>
                   <h3 className="font-display text-[19px] font-semibold text-white tracking-[-0.015em] mb-2">
-                    {u.title}
+                    {m.title}
                   </h3>
-                  <p className="text-[14px] leading-[1.55] text-mute-2">{u.body}</p>
+                  <p className="text-[14px] leading-[1.55] text-mute-2">{m.body}</p>
                 </div>
               </div>
             ))}
@@ -112,18 +140,18 @@ export default function Ecosystem() {
         </section>
 
         {/* Social Circles */}
-        <section className="mb-24">
+        <section className="mb-20">
           <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             <Users size={12} className="text-cyan" />
             Social Circles
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
-            Deliberation topology — by design.
+            Deliberation conditions, engineered by access.
           </h2>
           <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
-            Phoebe&apos;s circle structure is the social-layer expression of
-            Bahrami&apos;s neuroscience: small, structured, semi-blind groups
-            outperform large unstructured crowds.
+            Three circle types emerge from following relationships. Phoebe
+            gates each via $PHOB cost and visibility rules — the topology
+            Bahrami&apos;s neuroscience demands.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {CIRCLES.map((c) => (
@@ -150,10 +178,44 @@ export default function Ecosystem() {
           </div>
         </section>
 
+        {/* Why this isn't gambling */}
+        <section className="mb-20">
+          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+            <Shield size={12} className="text-cyan" />
+            Why This Isn&apos;t Gambling
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
+            Free distribution. Zero financial stake.
+          </h2>
+          <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
+            Every prediction market we know of asks users to bet their own
+            money. Phoebe doesn&apos;t — and the legal, behavioural, and
+            methodological implications run deep.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {NOT_GAMBLING.map((c, i) => (
+              <div
+                key={c.title}
+                className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
+              >
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="font-mono text-[11px] text-cyan tracking-widest">
+                    0{i + 1}
+                  </span>
+                  <h3 className="font-display text-[18px] font-semibold text-white tracking-[-0.015em] leading-[1.2]">
+                    {c.title}
+                  </h3>
+                </div>
+                <p className="text-[14px] leading-[1.55] text-mute-2">{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Compliance */}
         <section id="compliance" className="mb-20">
           <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            <Shield size={12} className="text-cyan" />
+            <Shield size={12} className="text-amethyst" />
             Legal & Compliance
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-8 text-balance">
@@ -166,7 +228,7 @@ export default function Ecosystem() {
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
               >
                 <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-mono text-[11px] text-cyan tracking-widest">
+                  <span className="font-mono text-[11px] text-amethyst tracking-widest">
                     0{i + 1}
                   </span>
                   <h3 className="font-display text-[18px] font-semibold text-white tracking-[-0.015em] leading-[1.2]">
@@ -192,7 +254,7 @@ export default function Ecosystem() {
             Need the full token-mechanics paper?
           </h2>
           <p className="mt-4 text-[16px] text-mute-2 max-w-2xl mx-auto">
-            We share an extended legal memo and economics whitepaper with
+            We share an extended legal memo and token-economics whitepaper with
             qualified counsel on request.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">

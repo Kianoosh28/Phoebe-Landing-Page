@@ -48,7 +48,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${schibsted.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30">
+      <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30 overflow-x-clip">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

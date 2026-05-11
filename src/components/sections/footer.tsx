@@ -39,9 +39,6 @@ export function Footer() {
               The Sovereign Intelligence Engine. Neuroscientific deliberation
               meets merit-weighted AI.
             </p>
-            <div className="mt-5 text-[11px] uppercase tracking-[0.18em] text-mute font-mono">
-              tech_admin@phoebeapp.io
-            </div>
           </div>
 
           {COLS.map((col) => (

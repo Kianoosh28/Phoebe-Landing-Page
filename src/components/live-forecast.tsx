@@ -62,30 +62,32 @@ export function LiveForecast() {
   }, [score]);
 
   return (
-    <div className="relative w-full max-w-[560px] mx-auto">
-      <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-5 sm:p-6 overflow-hidden">
+    <div className="relative w-full max-w-[560px] mx-auto min-w-0">
+      <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-4 sm:p-6 overflow-hidden">
         {/* glow ring */}
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-cyan/10 blur-3xl" />
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-5">
-          <div className="flex items-center gap-2.5">
-            <div className="relative">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 mb-5">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="relative shrink-0">
               <div className="h-2 w-2 rounded-full bg-cyan" />
               <div className="absolute inset-0 h-2 w-2 rounded-full bg-cyan animate-ping" />
             </div>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-mute-2">
-              Live Forecast · AA Title · Q4 2026
+            <span className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.16em] sm:tracking-[0.18em] text-mute-2 truncate">
+              Live Forecast · AA · Q4 2026
             </span>
           </div>
-          <span className="text-[11px] text-mute font-mono">#PH-2031</span>
+          <span className="text-[11px] text-mute font-mono shrink-0">#PH-2031</span>
         </div>
 
-        <div className="text-[13px] text-mute-2 mb-1">Lords of the Fallen II · Critic Aggregate Score (0–100)</div>
+        <div className="text-[12.5px] sm:text-[13px] text-mute-2 mb-1 text-balance">
+          Lords of the Fallen II · Critic Aggregate Score (0–100)
+        </div>
 
         {/* Score */}
-        <div className="flex items-baseline gap-3 mb-5">
-          <span className="font-display text-[64px] sm:text-[72px] leading-none font-semibold tabular-nums bg-gradient-to-br from-white to-cyan-soft bg-clip-text text-transparent">
+        <div className="flex items-baseline flex-wrap gap-x-3 gap-y-1 mb-5">
+          <span className="font-display text-[52px] sm:text-[64px] lg:text-[72px] leading-none font-semibold tabular-nums bg-gradient-to-br from-white to-cyan-soft bg-clip-text text-transparent">
             {scoreNum.toFixed(1)}
           </span>
           <span className="text-mute-2 text-sm">±1.3 margin</span>
@@ -109,12 +111,12 @@ export function LiveForecast() {
 
         {/* Aggregator */}
         <div className="relative">
-          <div className="text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-3">
-            Atomic Arguments — weighted aggregation
+          <div className="text-[10.5px] sm:text-[11px] uppercase tracking-[0.14em] sm:tracking-[0.18em] text-mute-2 mb-3">
+            Atomic Arguments — weighted
           </div>
           <div
             ref={scrollRef}
-            className="space-y-2 h-[244px] overflow-y-auto pr-1 [scrollbar-width:thin]"
+            className="space-y-2 h-[244px] overflow-y-auto scrollbar-hide"
           >
             <AnimatePresence initial={false}>
               {ARGUMENTS.slice(0, step).map((a) => (
@@ -124,7 +126,7 @@ export function LiveForecast() {
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative flex items-center gap-3 rounded-lg border border-line bg-white/[0.02] p-3"
+                  className="group relative flex items-center gap-2 sm:gap-3 rounded-lg border border-line bg-white/[0.02] p-2.5 sm:p-3"
                 >
                   <span
                     className={cn(
@@ -133,21 +135,21 @@ export function LiveForecast() {
                     )}
                   />
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-[11px] font-mono text-mute-2 truncate">
+                    <div className="flex items-center justify-between gap-2 min-w-0">
+                      <span className="text-[10.5px] sm:text-[11px] font-mono text-mute-2 truncate min-w-0">
                         {a.author}
                       </span>
-                      <span className="text-[11px] font-mono text-white tabular-nums">
+                      <span className="text-[10.5px] sm:text-[11px] font-mono text-white tabular-nums shrink-0">
                         w·{a.weight.toFixed(2)}
                       </span>
                     </div>
-                    <div className="text-[12.5px] text-white/85 leading-snug truncate">
+                    <div className="text-[12px] sm:text-[12.5px] text-white/85 leading-snug truncate">
                       {a.claim}
                     </div>
                   </div>
                   <div
                     className={cn(
-                      "h-full w-1 rounded-r",
+                      "hidden sm:block h-full w-1 rounded-r shrink-0",
                       a.polarity === "bull" ? "bg-cyan/40" : "bg-bearish/40"
                     )}
                     style={{ height: 28 + a.weight * 18 }}

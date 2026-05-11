@@ -17,7 +17,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-14 items-center min-w-0">
           {/* Left column */}
           <div>
             <motion.div
@@ -100,6 +100,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.96, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="min-w-0 w-full"
           >
             <LiveForecast />
           </motion.div>
