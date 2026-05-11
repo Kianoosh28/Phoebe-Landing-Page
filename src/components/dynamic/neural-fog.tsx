@@ -11,7 +11,6 @@ type Particle = {
   baseVy: number;
 };
 
-const PARTICLE_COUNT = 70;
 const MAX_LINK_DIST = 150;
 const MOUSE_RADIUS = 140;
 const MOUSE_FORCE = 0.55;
@@ -27,13 +26,13 @@ export function NeuralFog() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-    // Skip particles on touch devices and reduced-motion preference.
-    if (reduceMotion || isCoarsePointer) return;
+    if (reduceMotion) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Scale particle count down on narrow viewports so mobile perf stays smooth.
+    const particleCount = window.innerWidth < 640 ? 38 : 70;
     let width = window.innerWidth;
     let height = window.innerHeight;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -51,7 +50,7 @@ export function NeuralFog() {
     };
     resize();
 
-    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => {
+    const particles: Particle[] = Array.from({ length: particleCount }, () => {
       const vx = (Math.random() - 0.5) * DRIFT_SPEED;
       const vy = (Math.random() - 0.5) * DRIFT_SPEED;
       return {
