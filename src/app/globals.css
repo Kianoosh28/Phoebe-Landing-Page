@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Phoebe palette */
+  --color-obsidian: #050505;
+  --color-obsidian-50: #0a0a0c;
+  --color-obsidian-100: #101014;
+  --color-obsidian-200: #16161c;
+  --color-obsidian-300: #1d1d26;
+  --color-obsidian-400: #2a2a36;
+
+  --color-cyan: #00f0ff;
+  --color-cyan-soft: #5cf6ff;
+  --color-cyan-deep: #009eaa;
+
+  --color-amethyst: #8a2be2;
+  --color-amethyst-soft: #b88bff;
+  --color-amethyst-deep: #5b1a99;
+
+  --color-bullish: #00f0ff;
+  --color-bearish: #ff4757;
+
+  --color-mute: #6b6b78;
+  --color-mute-2: #9a9aa6;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-schibsted), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Surfaces */
+  --color-background: var(--color-obsidian);
+  --color-foreground: #f6f7fb;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-cyan) 30%, transparent);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    background-image: radial-gradient(
+        circle at 1px 1px,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 0
+      );
+    background-size: 3px 3px;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 0 1px rgba(0, 240, 255, 0.25),
+      0 0 40px -10px rgba(0, 240, 255, 0.45),
+      0 0 80px -20px rgba(0, 240, 255, 0.35);
+  }
+
+  .glow-amethyst {
+    box-shadow: 0 0 0 1px rgba(138, 43, 226, 0.3),
+      0 0 40px -10px rgba(138, 43, 226, 0.5);
+  }
+
+  .stroke-line {
+    border-color: var(--color-line);
+  }
+
+  .hairline {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      var(--color-line-strong) 20%,
+      var(--color-line-strong) 80%,
+      transparent
+    );
+    height: 1px;
+    width: 100%;
+  }
+
+  /* Subtle moving grid backdrop */
+  .grid-bg {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+    mask-image: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-obsidian-400);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-obsidian-300);
+}
