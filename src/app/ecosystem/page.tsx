@@ -90,7 +90,7 @@ export default function Ecosystem() {
             <Coins size={12} className="text-amethyst" />
             Ecosystem
           </div>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
+          <h1 className="font-display glitch-reveal text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
             <span className="bg-gradient-to-br from-amethyst-soft to-amethyst bg-clip-text text-transparent">
               $PHOB
             </span>{" "}

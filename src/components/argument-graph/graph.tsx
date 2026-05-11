@@ -265,7 +265,7 @@ export function ArgumentGraph() {
             <Radar size={12} className="text-cyan" />
             The Argument Graph
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
+          <h2 className="font-display glitch-reveal text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
             Every forecast is an{" "}
             <span className="bg-gradient-to-br from-cyan-soft via-cyan to-amethyst bg-clip-text text-transparent">
               audit trail of arguments.
@@ -345,7 +345,7 @@ export function ArgumentGraph() {
         </div>
 
         {/* Graph + Detail panel */}
-        <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 overflow-hidden">
+        <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 overflow-hidden running-border">
           <div className="flex flex-col lg:flex-row">
             <div className="relative flex-1 min-h-[520px] lg:min-h-[620px]">
               {/* Header bar */}

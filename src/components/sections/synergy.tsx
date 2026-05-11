@@ -40,7 +40,7 @@ export function Synergy() {
             <span className="h-1 w-1 rounded-full bg-cyan" />
             Human-AI Synergy
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
+          <h2 className="font-display glitch-reveal text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
             Four steps from{" "}
             <span className="bg-gradient-to-br from-cyan-soft via-cyan to-amethyst bg-clip-text text-transparent">
               scattered intuition

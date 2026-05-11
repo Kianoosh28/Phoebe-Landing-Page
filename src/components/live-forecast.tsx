@@ -63,7 +63,7 @@ export function LiveForecast() {
 
   return (
     <div className="relative w-full max-w-[560px] mx-auto min-w-0">
-      <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-4 sm:p-6 overflow-hidden">
+      <div className="relative rounded-2xl border border-line bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-4 sm:p-6 overflow-hidden running-border">
         {/* glow ring */}
         <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-cyan/10 blur-3xl" />
 

@@ -127,6 +127,112 @@
   }
 }
 
+/* Animated gradient angle for running-border tracer */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-border {
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@layer utilities {
+  /* Running-light border: a small cyan→amethyst arc travels around the
+     element's 1px border. Apply alongside `border border-line`. */
+  .running-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .running-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--gradient-angle, 0deg),
+      transparent 0deg,
+      transparent 240deg,
+      rgba(0, 240, 255, 0.85) 285deg,
+      rgba(138, 43, 226, 0.7) 315deg,
+      transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: rotate-border 7s linear infinite;
+    z-index: 1;
+  }
+}
+
+/* Data-glitch reveal — applied on mount via .glitch-reveal class.
+   One-shot animation, plays exactly once. */
+@keyframes glitch-reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(46% 0 46% 0);
+    text-shadow: 0 0 transparent;
+  }
+  8% {
+    opacity: 1;
+    clip-path: inset(40% 0 30% 0);
+    text-shadow: -3px 0 #00f0ff, 3px 0 #8a2be2;
+  }
+  18% {
+    clip-path: inset(8% 0 72% 0);
+    text-shadow: 4px 0 #00f0ff, -4px 0 #8a2be2;
+  }
+  28% {
+    clip-path: inset(70% 0 5% 0);
+    text-shadow: -3px 0 #ff4757, 3px 0 #00f0ff;
+  }
+  38% {
+    clip-path: inset(30% 0 32% 0);
+    text-shadow: 2px 0 #00f0ff, -2px 0 #8a2be2;
+  }
+  50% {
+    clip-path: inset(0);
+    text-shadow: -1px 0 #00f0ff, 1px 0 #8a2be2;
+  }
+  62% {
+    clip-path: inset(0 0 60% 0);
+    text-shadow: 2px 0 #00f0ff, -2px 0 transparent;
+  }
+  74% {
+    clip-path: inset(50% 0 0 0);
+    text-shadow: -1px 0 #00f0ff, 1px 0 #8a2be2;
+  }
+  88% {
+    clip-path: inset(0);
+    text-shadow: 0 0 transparent;
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0);
+    text-shadow: 0 0 transparent;
+  }
+}
+
+.glitch-reveal {
+  animation: glitch-reveal 0.85s steps(14, end) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-reveal {
+    animation: none;
+    opacity: 1;
+  }
+  .running-border::after {
+    animation: none;
+  }
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;

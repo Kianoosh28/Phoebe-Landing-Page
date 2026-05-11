@@ -13,7 +13,7 @@ export function Moat() {
             <span className="h-1 w-1 rounded-full bg-amethyst" />
             The Methodological Moat
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
+          <h2 className="font-display glitch-reveal text-4xl sm:text-5xl lg:text-[56px] font-semibold tracking-[-0.025em] leading-[1.02] text-white text-balance">
             Why Phoebe beats prediction markets,{" "}
             <span className="bg-gradient-to-br from-amethyst-soft via-amethyst to-cyan bg-clip-text text-transparent">
               by design.

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections/footer";
+import { NeuralFog } from "@/components/dynamic/neural-fog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,8 +50,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${schibsted.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30 overflow-x-clip">
+        <NeuralFog />
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

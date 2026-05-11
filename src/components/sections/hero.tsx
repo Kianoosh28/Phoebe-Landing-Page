@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LiveForecast } from "@/components/live-forecast";
+import { Magnetic } from "@/components/dynamic/magnetic";
 
 export function Hero() {
   return (
@@ -34,7 +35,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="font-display text-balance text-[42px] leading-[1.02] sm:text-[58px] sm:leading-[0.98] lg:text-[68px] font-semibold tracking-[-0.025em] text-white"
+              className="font-display glitch-reveal text-balance text-[42px] leading-[1.02] sm:text-[58px] sm:leading-[0.98] lg:text-[68px] font-semibold tracking-[-0.025em] text-white"
             >
               The end of binary bets.{" "}
               <span className="bg-gradient-to-br from-cyan via-cyan-soft to-amethyst bg-clip-text text-transparent">
@@ -59,17 +60,21 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.25 }}
               className="mt-9 flex flex-col sm:flex-row gap-3"
             >
-              <Link href="#pilot">
-                <Button variant="primary" size="lg">
-                  Request a Pilot
-                  <ArrowRight size={16} />
-                </Button>
-              </Link>
-              <Link href="#argument-graph">
-                <Button variant="outline" size="lg">
-                  Inspect the Argument Graph
-                </Button>
-              </Link>
+              <Magnetic>
+                <Link href="#pilot">
+                  <Button variant="primary" size="lg">
+                    Request a Pilot
+                    <ArrowRight size={16} />
+                  </Button>
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <Link href="#argument-graph">
+                  <Button variant="outline" size="lg">
+                    Inspect the Argument Graph
+                  </Button>
+                </Link>
+              </Magnetic>
             </motion.div>
 
             <motion.div

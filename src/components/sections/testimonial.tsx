@@ -14,7 +14,7 @@ export function Testimonial() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl border border-line bg-gradient-to-b from-white/[0.03] to-transparent p-8 sm:p-14"
+          className="relative rounded-3xl border border-line bg-gradient-to-b from-white/[0.03] to-transparent p-8 sm:p-14 running-border"
         >
           <div className="relative">
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-8">
