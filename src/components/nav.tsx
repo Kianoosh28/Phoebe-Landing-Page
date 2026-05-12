@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { usePilotModal } from "@/components/pilot-modal";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -16,6 +17,7 @@ const links = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { open: openPilot } = usePilotModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -51,11 +53,9 @@ export function Nav() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
-          <Link href="#pilot">
-            <Button variant="primary" size="sm">
-              Request a Pilot
-            </Button>
-          </Link>
+          <Button variant="primary" size="sm" onClick={openPilot}>
+            Request a Pilot
+          </Button>
         </div>
 
         <button
@@ -80,11 +80,17 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <Link href="#pilot" onClick={() => setOpen(false)} className="mt-2">
-              <Button variant="primary" size="md" className="w-full">
-                Request a Pilot
-              </Button>
-            </Link>
+            <Button
+              variant="primary"
+              size="md"
+              className="w-full mt-2"
+              onClick={() => {
+                setOpen(false);
+                openPilot();
+              }}
+            >
+              Request a Pilot
+            </Button>
           </div>
         </div>
       )}

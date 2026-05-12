@@ -5,8 +5,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/dynamic/magnetic";
+import { usePilotModal } from "@/components/pilot-modal";
 
 export function PilotCTA() {
+  const { open: openPilot } = usePilotModal();
   return (
     <section id="pilot" className="relative py-12 sm:py-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -37,12 +39,10 @@ export function PilotCTA() {
 
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
             <Magnetic>
-              <Link href="mailto:tech_admin@phoebeapp.io?subject=Phoebe%20Pilot%20Request">
-                <Button variant="primary" size="lg">
-                  Request a Pilot
-                  <ArrowRight size={16} />
-                </Button>
-              </Link>
+              <Button variant="primary" size="lg" onClick={openPilot}>
+                Request a Pilot
+                <ArrowRight size={16} />
+              </Button>
             </Magnetic>
             <Magnetic>
               <Link href="/science">

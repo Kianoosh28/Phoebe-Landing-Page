@@ -2,12 +2,14 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LiveForecast } from "@/components/live-forecast";
 import { Magnetic } from "@/components/dynamic/magnetic";
+import { usePilotModal } from "@/components/pilot-modal";
 
 export function Hero() {
+  const { open: openPilot } = usePilotModal();
   return (
     <section className="relative overflow-hidden pt-32 sm:pt-40 pb-12 sm:pb-16">
       {/* Backdrop */}
@@ -25,21 +27,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.02] px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-6"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan/45 bg-cyan/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-cyan mb-6 shadow-[0_0_28px_-6px_rgba(0,240,255,0.65),inset_0_0_0_1px_rgba(0,240,255,0.08)]"
             >
-              <Sparkles size={12} className="text-cyan" />
-              The Sovereign Intelligence Engine
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_8px_2px_rgba(0,240,255,0.8)]" />
+              For AA &amp; AAA Game Studios
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="font-display glitch-reveal text-balance text-[42px] leading-[1.02] sm:text-[58px] sm:leading-[0.98] lg:text-[68px] font-semibold tracking-[-0.025em] text-white"
+              className="font-display glitch-reveal text-balance text-[50px] leading-[0.98] sm:text-[68px] sm:leading-[0.95] lg:text-[82px] lg:leading-[0.93] font-bold tracking-[-0.03em] text-white"
             >
-              The end of binary bets.{" "}
+              Know Your Score.{" "}
               <span className="bg-gradient-to-br from-cyan via-cyan-soft to-amethyst bg-clip-text text-transparent">
-                The rise of probabilistic truth.
+                Secure Your Success.
               </span>
             </motion.h1>
 
@@ -47,11 +49,15 @@ export function Hero() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="mt-6 max-w-xl text-balance text-[16px] sm:text-[17.5px] leading-[1.55] text-mute-2"
+              className="mt-6 max-w-xl text-balance text-[16.5px] sm:text-[18px] leading-[1.55] text-mute-2"
             >
-              Move beyond market noise. Phoebe combines neuroscientific deliberation
-              with merit-weighted AI to generate forecasts with{" "}
-              <span className="text-white">unmatched precision.</span>
+              Stop relying on gut feeling. Phoebe is a predictive intelligence
+              engine that forecasts{" "}
+              <span className="text-white">
+                game ratings and commercial performance
+              </span>{" "}
+              months before launch — allowing you to pivot your strategy when
+              it actually matters.
             </motion.p>
 
             <motion.div
@@ -61,12 +67,10 @@ export function Hero() {
               className="mt-9 flex flex-col sm:flex-row gap-3"
             >
               <Magnetic>
-                <Link href="#pilot">
-                  <Button variant="primary" size="lg">
-                    Request a Pilot
-                    <ArrowRight size={16} />
-                  </Button>
-                </Link>
+                <Button variant="primary" size="lg" onClick={openPilot}>
+                  Request a Pilot
+                  <ArrowRight size={16} />
+                </Button>
               </Magnetic>
               <Magnetic>
                 <Link href="#argument-graph">
@@ -78,25 +82,31 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.5 }}
-              className="mt-12 grid grid-cols-3 gap-5 max-w-md"
+              className="mt-12 max-w-xl"
             >
-              {[
-                { v: "1.3%", l: "median error margin" },
-                { v: "120+", l: "pro reviewers benchmarked" },
-                { v: "0.94", l: "calibration score" },
-              ].map((s) => (
-                <div key={s.l}>
-                  <div className="font-display text-2xl sm:text-3xl text-white font-semibold tabular-nums">
-                    {s.v}
+              <div className="rounded-xl border border-cyan/25 bg-gradient-to-r from-cyan/[0.07] via-cyan/[0.03] to-transparent p-5 flex items-start gap-5">
+                <div className="shrink-0">
+                  <div className="font-display text-3xl sm:text-[40px] text-white font-semibold tabular-nums leading-none">
+                    1.3<span className="text-cyan">%</span>
                   </div>
-                  <div className="text-[11px] uppercase tracking-[0.14em] text-mute mt-1">
-                    {s.l}
+                  <div className="text-[10.5px] uppercase tracking-[0.16em] text-cyan font-mono mt-2">
+                    Proven Accuracy
                   </div>
                 </div>
-              ))}
+                <p className="text-[13.5px] leading-[1.5] text-mute-2 border-l border-line pl-5">
+                  Our{" "}
+                  <span className="text-white">Amazon Games pilot</span>{" "}
+                  predicted a{" "}
+                  <span className="text-white tabular-nums">
+                    77 Metacritic score
+                  </span>{" "}
+                  with a{" "}
+                  <span className="text-white tabular-nums">76 forecast</span>.
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -107,6 +117,13 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="min-w-0 w-full"
           >
+            <div className="mb-3 flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_8px_2px_rgba(0,240,255,0.7)]" />
+              <span>
+                Real-time Dashboard Preview · Forecasting{" "}
+                <span className="text-white">Lords of the Fallen II</span>
+              </span>
+            </div>
             <LiveForecast />
           </motion.div>
         </div>

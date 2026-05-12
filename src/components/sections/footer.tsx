@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/logo";
+import { PilotTrigger } from "@/components/pilot-modal";
+
+const PILOT_HREF = "__pilot__";
 
 const COLS = [
   {
     title: "Engine",
     links: [
       { href: "/#argument-graph", label: "Argument Graph" },
-      { href: "/#pilot", label: "Request a Pilot" },
+      { href: PILOT_HREF, label: "Request a Pilot" },
       { href: "/science", label: "Science" },
       { href: "/ecosystem", label: "Ecosystem" },
     ],
@@ -49,12 +52,18 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.href + l.label}>
-                    <Link
-                      href={l.href}
-                      className="text-[13.5px] text-white/80 hover:text-cyan transition-colors"
-                    >
-                      {l.label}
-                    </Link>
+                    {l.href === PILOT_HREF ? (
+                      <PilotTrigger className="text-[13.5px] text-white/80 hover:text-cyan transition-colors">
+                        {l.label}
+                      </PilotTrigger>
+                    ) : (
+                      <Link
+                        href={l.href}
+                        className="text-[13.5px] text-white/80 hover:text-cyan transition-colors"
+                      >
+                        {l.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
