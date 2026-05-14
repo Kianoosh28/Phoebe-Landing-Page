@@ -5,6 +5,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/sections/footer";
 import { NeuralFog } from "@/components/dynamic/neural-fog";
 import { PilotModalProvider } from "@/components/pilot-modal";
+import { WaitlistModalProvider } from "@/components/waitlist-modal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,10 +53,12 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30 overflow-x-clip">
         <PilotModalProvider>
-          <NeuralFog />
-          <Nav />
-          <main className="relative z-10 flex-1">{children}</main>
-          <Footer />
+          <WaitlistModalProvider>
+            <NeuralFog />
+            <Nav />
+            <main className="relative z-10 flex-1">{children}</main>
+            <Footer />
+          </WaitlistModalProvider>
         </PilotModalProvider>
       </body>
     </html>

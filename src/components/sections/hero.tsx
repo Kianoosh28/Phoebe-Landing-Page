@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "motion/react";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LiveForecast } from "@/components/live-forecast";
 import { Magnetic } from "@/components/dynamic/magnetic";
 import { usePilotModal } from "@/components/pilot-modal";
+import { useWaitlistModal } from "@/components/waitlist-modal";
 
 export function Hero() {
   const { open: openPilot } = usePilotModal();
+  const { open: openWaitlist } = useWaitlistModal();
   return (
     <section className="relative overflow-hidden pt-32 sm:pt-40 pb-12 sm:pb-16">
       {/* Backdrop */}
@@ -64,7 +65,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="mt-9 flex flex-col sm:flex-row gap-3"
+              className="mt-9 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5"
             >
               <Magnetic>
                 <Button variant="primary" size="lg" onClick={openPilot}>
@@ -72,39 +73,21 @@ export function Hero() {
                   <ArrowRight size={16} />
                 </Button>
               </Magnetic>
-              <Magnetic>
-                <Link href="#argument-graph">
-                  <Button variant="outline" size="lg">
-                    Inspect the Argument Graph
+              <div className="flex flex-col gap-2 sm:max-w-[280px]">
+                <Magnetic>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={openWaitlist}
+                    className="border-amethyst/55 text-white hover:border-amethyst hover:text-amethyst-soft hover:bg-amethyst/[0.06] shadow-[0_0_0_1px_rgba(138,43,226,0.18),0_10px_40px_-18px_rgba(138,43,226,0.55)]"
+                  >
+                    Join the Prediction Waitlist
                   </Button>
-                </Link>
-              </Magnetic>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.5 }}
-              className="mt-12 max-w-xl"
-            >
-              <div className="rounded-xl border border-cyan/25 bg-gradient-to-r from-cyan/[0.07] via-cyan/[0.03] to-transparent p-5 flex items-start gap-5">
-                <div className="shrink-0">
-                  <div className="font-display text-3xl sm:text-[40px] text-white font-semibold tabular-nums leading-none">
-                    1.3<span className="text-cyan">%</span>
-                  </div>
-                  <div className="text-[10.5px] uppercase tracking-[0.16em] text-cyan font-mono mt-2">
-                    Proven Accuracy
-                  </div>
-                </div>
-                <p className="text-[13.5px] leading-[1.5] text-mute-2 border-l border-line pl-5">
-                  Our{" "}
-                  <span className="text-white">Amazon Games pilot</span>{" "}
-                  predicted a{" "}
-                  <span className="text-white tabular-nums">
-                    77 Metacritic score
-                  </span>{" "}
-                  with a{" "}
-                  <span className="text-white tabular-nums">76 forecast</span>.
+                </Magnetic>
+                <p className="text-[11.5px] leading-[1.45] text-mute pl-1">
+                  Early access members receive a{" "}
+                  <span className="text-amethyst-soft">2,000 $PHOB</span> launch
+                  voucher.
                 </p>
               </div>
             </motion.div>

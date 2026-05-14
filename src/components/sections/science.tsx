@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Download, ExternalLink, Brain } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const PAPERS = [
@@ -24,10 +25,10 @@ const PAPERS = [
 ];
 
 const GRANTS = [
-  { name: "ERC", role: "European Research Council" },
-  { name: "PEPR eNSEMBLE", role: "France 2030 program" },
-  { name: "France 2030", role: "National investment plan" },
-  { name: "French Tech", role: "Startup ecosystem" },
+  { src: "/ERC.png", alt: "European Research Council" },
+  { src: "/PEPR-eNSEMBLE.png", alt: "PEPR eNSEMBLE" },
+  { src: "/France2030.png", alt: "France 2030" },
+  { src: "/FrenchTech.png", alt: "French Tech" },
 ];
 
 export function Science() {
@@ -61,14 +62,20 @@ export function Science() {
             <div className="mt-8 text-[11px] uppercase tracking-[0.18em] text-mute mb-3">
               Backed by
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-4">
               {GRANTS.map((g) => (
                 <div
-                  key={g.name}
-                  className="rounded-lg border border-line bg-white/[0.025] px-3 py-2"
+                  key={g.alt}
+                  className="relative h-[84px] w-[84px] sm:h-[94px] sm:w-[94px] rounded-full overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
+                  title={g.alt}
                 >
-                  <div className="text-[12.5px] text-white">{g.name}</div>
-                  <div className="text-[10.5px] text-mute font-mono">{g.role}</div>
+                  <Image
+                    src={g.src}
+                    alt={g.alt}
+                    width={188}
+                    height={188}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               ))}
             </div>

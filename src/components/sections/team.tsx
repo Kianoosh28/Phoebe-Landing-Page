@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
@@ -18,7 +19,7 @@ function LinkedInIcon({ size = 14 }: { size?: number }) {
 }
 
 type Founder = {
-  initials: string;
+  photo: string;
   name: string;
   role: string;
   bio: string;
@@ -29,7 +30,7 @@ type Founder = {
 
 const FOUNDERS: Founder[] = [
   {
-    initials: "PT",
+    photo: "/Paran.jpg",
     name: "Paran Tanzifi",
     role: "Co-Founder & CEO",
     bio: "Visionary with a decade experience in IT and gaming startups. Owns Phoebe's business and marketing strategy.",
@@ -38,7 +39,7 @@ const FOUNDERS: Founder[] = [
     linkedin: "https://linkedin.com/in/paran-tanzifi",
   },
   {
-    initials: "KK",
+    photo: "/Kianoosh.jpg",
     name: "Kianoosh Kani",
     role: "Co-Founder & COO",
     bio: "Serial founder across tech and gaming. Drives Phoebe's operating system and product surface through rigorous design-thinking.",
@@ -47,7 +48,7 @@ const FOUNDERS: Founder[] = [
     linkedin: "https://linkedin.com/in/kianoosh-kani",
   },
   {
-    initials: "BB",
+    photo: "/Bahador.jpg",
     name: "Bahador Bahrami",
     role: "Co-Founder & CSO",
     bio: "Neuroscientist whose published work on crowd wisdom and structured deliberation underpins Phoebe's methodological moat.",
@@ -56,7 +57,7 @@ const FOUNDERS: Founder[] = [
     linkedin: "https://linkedin.com/in/bahador-bahrami",
   },
   {
-    initials: "BO",
+    photo: "/Bernard.jpg",
     name: "Bernard Okwampah",
     role: "Co-Founder & CTO",
     bio: "AI engineer with deep cybersecurity expertise. Architects Phoebe's merit-weighting algorithms and the platform's trust layer.",
@@ -95,13 +96,17 @@ export function Team() {
               <div className="flex items-start gap-5">
                 <div className="relative shrink-0">
                   <div
-                    className={`h-16 w-16 rounded-2xl border border-line flex items-center justify-center font-display text-2xl font-semibold text-white bg-gradient-to-br ${
-                      f.accent === "cyan"
-                        ? "from-cyan/25 to-cyan-deep/10"
-                        : "from-amethyst/30 to-amethyst-deep/10"
+                    className={`relative h-24 w-24 overflow-hidden rounded-2xl border bg-black/40 ${
+                      f.accent === "cyan" ? "border-cyan/50" : "border-amethyst/50"
                     }`}
                   >
-                    {f.initials}
+                    <Image
+                      src={f.photo}
+                      alt={f.name}
+                      fill
+                      sizes="96px"
+                      className="object-cover object-center grayscale transition-[filter,transform] duration-500 ease-out group-hover:grayscale-0 group-hover:saturate-150 group-hover:contrast-110 group-hover:brightness-105 group-hover:scale-[1.04]"
+                    />
                   </div>
                   <div
                     className={`absolute -inset-1 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity pointer-events-none ${
