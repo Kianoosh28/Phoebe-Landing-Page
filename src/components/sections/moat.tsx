@@ -2,13 +2,14 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 import { cn } from "@/lib/utils";
 
 export function Moat() {
   return (
     <section className="relative py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl mb-14">
+        <Reveal className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <span className="h-1 w-1 rounded-full bg-amethyst" />
             The Methodological Moat
@@ -24,12 +25,12 @@ export function Moat() {
             <span className="text-white">how sure</span> they are, and weights every voice by{" "}
             <span className="text-white">earned merit</span>.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <CertaintyCard />
-          <MeritCard />
-          <CirclesCard />
+          <CertaintyCard index={0} />
+          <MeritCard index={1} />
+          <CirclesCard index={2} />
         </div>
       </div>
     </section>
@@ -42,18 +43,18 @@ function MoatCard({
   body,
   children,
   className,
+  index = 0,
 }: {
   eyebrow: string;
   title: string;
   body: string;
   children: React.ReactNode;
   className?: string;
+  index?: number;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <RevealItem
+      index={index}
       className={cn(
         "relative rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent overflow-hidden flex flex-col",
         className
@@ -71,11 +72,11 @@ function MoatCard({
         </p>
       </div>
       <div className="mt-2 px-6 sm:px-7 pb-7 flex-1">{children}</div>
-    </motion.div>
+    </RevealItem>
   );
 }
 
-function CertaintyCard() {
+function CertaintyCard({ index = 0 }: { index?: number }) {
   const [value, setValue] = useState(78);
   const buckets = [
     { lo: 0, hi: 25, label: "Doubt" },
@@ -87,6 +88,7 @@ function CertaintyCard() {
 
   return (
     <MoatCard
+      index={index}
       eyebrow="01 — Certainty-Weighted Probability"
       title={'We don\'t ask "Yes or No." We ask "How sure are you?"'}
       body='Drag the slider. Every prediction is graded on conviction, not just direction — turning binary noise into calibrated signal.'
@@ -130,7 +132,7 @@ function CertaintyCard() {
   );
 }
 
-function MeritCard() {
+function MeritCard({ index = 0 }: { index?: number }) {
   const users = [
     { name: "K. Imura", acc: 0.91, dom: "Critic", weight: 1.42 },
     { name: "M. Velasco", acc: 0.84, dom: "Analyst", weight: 1.21 },
@@ -138,6 +140,7 @@ function MeritCard() {
   ];
   return (
     <MoatCard
+      index={index}
       eyebrow="02 — Merit-Weighted Aggregation"
       title={"Not all voices are equal.\nSuperforecasters compound."}
       body="Phoebe's AI weights predictions by your historical accuracy and the quality of your deliberation — so signal compounds, noise decays."
@@ -187,9 +190,10 @@ function MeritCard() {
   );
 }
 
-function CirclesCard() {
+function CirclesCard({ index = 0 }: { index?: number }) {
   return (
     <MoatCard
+      index={index}
       eyebrow="03 — Structured Deliberation"
       title="Blind circles eliminate the bandwagon effect."
       body="Forecasts cluster in semi-blind circles before peer exposure — Bahrami's neuroscience prevents groupthink from poisoning the signal."

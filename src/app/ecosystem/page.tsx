@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Coins, Users, Shield, ArrowRight, ScrollText, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 
 const MECHANICS = [
   {
@@ -85,7 +86,7 @@ export default function Ecosystem() {
     <div className="pt-32 pb-12">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         {/* Hero */}
-        <div className="max-w-3xl mb-16">
+        <Reveal className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <Coins size={12} className="text-amethyst" />
             Ecosystem
@@ -103,25 +104,28 @@ export default function Ecosystem() {
             how we engineer blind, semi-blind, and open deliberation
             conditions. No public price. No herding. No financial stake.
           </p>
-        </div>
+        </Reveal>
 
         {/* Mechanic */}
         <section className="mb-20">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            <Sparkles size={12} className="text-amethyst" />
-            How $PHOB Works
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
-            Follow with tokens. Build your circle.
-          </h2>
-          <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
-            The mechanic is deliberately small — but it is the entire reason
-            Phoebe&apos;s signal stays clean.
-          </p>
+          <Reveal>
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+              <Sparkles size={12} className="text-amethyst" />
+              How $PHOB Works
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
+              Follow with tokens. Build your circle.
+            </h2>
+            <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
+              The mechanic is deliberately small — but it is the entire reason
+              Phoebe&apos;s signal stays clean.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {MECHANICS.map((m, i) => (
-              <div
+              <RevealItem
                 key={m.title}
+                index={i}
                 className="relative rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6 overflow-hidden"
               >
                 <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-amethyst/15 blur-3xl pointer-events-none" />
@@ -134,29 +138,32 @@ export default function Ecosystem() {
                   </h3>
                   <p className="text-[14px] leading-[1.55] text-mute-2">{m.body}</p>
                 </div>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </section>
 
         {/* Social Circles */}
         <section className="mb-20">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            <Users size={12} className="text-cyan" />
-            Social Circles
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
-            Deliberation conditions, engineered by access.
-          </h2>
-          <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
-            Three circle types emerge from following relationships. Phoebe
-            gates each via $PHOB cost and visibility rules — the topology
-            Bahrami&apos;s neuroscience demands.
-          </p>
+          <Reveal>
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+              <Users size={12} className="text-cyan" />
+              Social Circles
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
+              Deliberation conditions, engineered by access.
+            </h2>
+            <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
+              Three circle types emerge from following relationships. Phoebe
+              gates each via $PHOB cost and visibility rules — the topology
+              Bahrami&apos;s neuroscience demands.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {CIRCLES.map((c) => (
-              <div
+            {CIRCLES.map((c, i) => (
+              <RevealItem
                 key={c.label}
+                index={i}
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
               >
                 <div className="flex items-center gap-2 mb-3">
@@ -173,29 +180,32 @@ export default function Ecosystem() {
                   {c.label}
                 </h3>
                 <p className="text-[14px] leading-[1.55] text-mute-2">{c.desc}</p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </section>
 
         {/* Why this isn't gambling */}
         <section className="mb-20">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            <Shield size={12} className="text-cyan" />
-            Why This Isn&apos;t Gambling
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
-            Free distribution. Zero financial stake.
-          </h2>
-          <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
-            Every prediction market we know of asks users to bet their own
-            money. Phoebe doesn&apos;t — and the legal, behavioural, and
-            methodological implications run deep.
-          </p>
+          <Reveal>
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+              <Shield size={12} className="text-cyan" />
+              Why This Isn&apos;t Gambling
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-4 text-balance">
+              Free distribution. Zero financial stake.
+            </h2>
+            <p className="text-[16px] text-mute-2 max-w-2xl mb-8 text-balance">
+              Every prediction market we know of asks users to bet their own
+              money. Phoebe doesn&apos;t — and the legal, behavioural, and
+              methodological implications run deep.
+            </p>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {NOT_GAMBLING.map((c, i) => (
-              <div
+              <RevealItem
                 key={c.title}
+                index={i}
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
               >
                 <div className="flex items-baseline gap-3 mb-2">
@@ -207,24 +217,27 @@ export default function Ecosystem() {
                   </h3>
                 </div>
                 <p className="text-[14px] leading-[1.55] text-mute-2">{c.body}</p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </section>
 
         {/* Compliance */}
         <section id="compliance" className="mb-20">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
-            <Shield size={12} className="text-amethyst" />
-            Legal & Compliance
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-8 text-balance">
-            A protocol, not a casino.
-          </h2>
+          <Reveal>
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+              <Shield size={12} className="text-amethyst" />
+              Legal & Compliance
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-semibold tracking-[-0.025em] leading-[1.05] text-white mb-8 text-balance">
+              A protocol, not a casino.
+            </h2>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {COMPLIANCE.map((c, i) => (
-              <div
+              <RevealItem
                 key={c.title}
+                index={i}
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
               >
                 <div className="flex items-baseline gap-3 mb-2">
@@ -236,16 +249,14 @@ export default function Ecosystem() {
                   </h3>
                 </div>
                 <p className="text-[14px] leading-[1.55] text-mute-2">{c.body}</p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </section>
 
         {/* Footer CTA */}
-        <section
-          id="legal"
-          className="rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-14 text-center"
-        >
+        <section id="legal">
+          <Reveal className="rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-14 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-6">
             <ScrollText size={12} className="text-amethyst" />
             For Legal & Counsel Teams
@@ -270,6 +281,7 @@ export default function Ecosystem() {
               </Button>
             </Link>
           </div>
+          </Reveal>
         </section>
       </div>
     </div>

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/dynamic/magnetic";
+import { Reveal } from "@/components/dynamic/reveal";
 import { usePilotModal } from "@/components/pilot-modal";
 
 export function PilotCTA() {
@@ -17,12 +17,7 @@ export function PilotCTA() {
       </div>
 
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-16 text-center running-border"
-        >
+        <Reveal className="relative rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-16 text-center running-border">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-cyan mb-7">
             <span className="h-1 w-1 rounded-full bg-cyan" />
             For Studios, Publishers & Platforms
@@ -58,7 +53,7 @@ export function PilotCTA() {
             <span>· 4-week turnaround ·</span>
             <span>· NDA on request ·</span>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

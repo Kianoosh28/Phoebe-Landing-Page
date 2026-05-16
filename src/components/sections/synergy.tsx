@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Users, Sliders, Sparkles, LineChart } from "lucide-react";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 import { cn } from "@/lib/utils";
 
 const steps = [
@@ -35,7 +35,7 @@ export function Synergy() {
   return (
     <section className="relative py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <span className="h-1 w-1 rounded-full bg-cyan" />
             Human-AI Synergy
@@ -50,7 +50,7 @@ export function Synergy() {
               converged forecast.
             </span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="relative mt-16">
           {/* Horizontal connecting line */}
@@ -60,13 +60,7 @@ export function Synergy() {
             {steps.map((s, i) => {
               const Icon = s.icon;
               return (
-                <motion.div
-                  key={s.n}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.08 }}
-                  className="relative group"
-                >
+                <RevealItem key={s.n} index={i} className="relative group">
                   <div className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.03] to-transparent p-6 h-full hover:border-line-strong transition-colors">
                     <div className="flex items-center gap-4 mb-5">
                       <div className="relative">
@@ -89,7 +83,7 @@ export function Synergy() {
                       {s.body}
                     </p>
                   </div>
-                </motion.div>
+                </RevealItem>
               );
             })}
           </div>

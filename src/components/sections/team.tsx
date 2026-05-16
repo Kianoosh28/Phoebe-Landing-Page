@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -71,7 +71,7 @@ export function Team() {
   return (
     <section className="relative py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="max-w-3xl mb-14">
+        <Reveal className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <span className="h-1 w-1 rounded-full bg-cyan" />
             The Founders&apos; Moat
@@ -82,15 +82,13 @@ export function Team() {
               One forecasting engine.
             </span>
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch">
           {FOUNDERS.map((f, i) => (
-            <motion.div
+            <RevealItem
               key={f.name}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.06 }}
+              index={i}
               className="group relative rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6 sm:p-7 hover:border-line-strong transition-colors h-full flex flex-col"
             >
               <div className="flex items-start gap-5">
@@ -154,7 +152,7 @@ export function Team() {
                   {f.tag}
                 </div>
               </div>
-            </motion.div>
+            </RevealItem>
           ))}
         </div>
       </div>

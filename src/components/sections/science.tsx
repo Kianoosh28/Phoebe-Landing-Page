@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Download, ExternalLink, Brain } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 
 const PAPERS = [
   {
@@ -41,7 +41,7 @@ export function Science() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16">
           {/* Left: positioning */}
-          <div>
+          <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
               <Brain size={12} className="text-amethyst" />
               The Science Behind Phoebe
@@ -79,16 +79,14 @@ export function Science() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: papers */}
           <div className="space-y-4">
             {PAPERS.map((p, i) => (
-              <motion.div
+              <RevealItem
                 key={p.doi}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.08 }}
+                index={i}
                 className="group rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6 sm:p-7 hover:border-line-strong transition-colors"
               >
                 <div className="flex items-center gap-2 mb-3 text-[11px] uppercase tracking-[0.16em] text-mute font-mono">
@@ -122,7 +120,7 @@ export function Science() {
                     <ExternalLink size={12} />
                   </Link>
                 </div>
-              </motion.div>
+              </RevealItem>
             ))}
           </div>
         </div>

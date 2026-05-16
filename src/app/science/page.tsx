@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Brain, Download, ExternalLink, Quote } from "lucide-react";
+import { Reveal, RevealItem } from "@/components/dynamic/reveal";
 
 const PAPERS = [
   {
@@ -53,7 +54,7 @@ export default function ScienceLibrary() {
   return (
     <div className="pt-32 pb-12">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="max-w-3xl mb-16">
+        <Reveal className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
             <Brain size={12} className="text-amethyst" />
             Science Library
@@ -70,17 +71,18 @@ export default function ScienceLibrary() {
             the Intelligence Engine sit on a foundation of published cognitive
             science from CSO Bahador Bahrami and collaborators.
           </p>
-        </div>
+        </Reveal>
 
         {/* Principles */}
         <div className="mb-20">
-          <div className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+          <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Four operating principles
-          </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {PRINCIPLES.map((p) => (
-              <div
+            {PRINCIPLES.map((p, i) => (
+              <RevealItem
                 key={p.n}
+                index={i}
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6"
               >
                 <div className="flex items-baseline gap-3 mb-2">
@@ -92,20 +94,21 @@ export default function ScienceLibrary() {
                   </h3>
                 </div>
                 <p className="text-[14px] leading-[1.55] text-mute-2">{p.body}</p>
-              </div>
+              </RevealItem>
             ))}
           </div>
         </div>
 
         {/* Papers */}
         <div>
-          <div className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
+          <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Peer-reviewed papers
-          </div>
+          </Reveal>
           <div className="space-y-5">
             {PAPERS.map((p, i) => (
-              <article
+              <RevealItem
                 key={p.doi}
+                index={i}
                 className="rounded-2xl border border-line bg-gradient-to-b from-white/[0.025] to-transparent p-6 sm:p-8"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -149,7 +152,7 @@ export default function ScienceLibrary() {
                     <ExternalLink size={12} />
                   </Link>
                 </div>
-              </article>
+              </RevealItem>
             ))}
           </div>
         </div>

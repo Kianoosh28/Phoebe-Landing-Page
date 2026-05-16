@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { Reveal } from "@/components/dynamic/reveal";
 
 export function Testimonial() {
   return (
@@ -11,12 +11,7 @@ export function Testimonial() {
       </div>
 
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative rounded-3xl border border-line bg-gradient-to-b from-white/[0.03] to-transparent p-8 sm:p-14 running-border"
-        >
+        <Reveal className="relative rounded-3xl border border-line bg-gradient-to-b from-white/[0.03] to-transparent p-8 sm:p-14 running-border">
           <div className="relative">
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-8">
               <span className="h-1 w-1 rounded-full bg-cyan" />
@@ -52,12 +47,12 @@ export function Testimonial() {
             </span>
 
             <div className="mt-9 flex items-center gap-4">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-cyan/40 bg-black/40">
+              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-cyan/40 bg-black/40">
                 <Image
                   src="/Greg.jpg"
                   alt="Greg Gobbi"
                   fill
-                  sizes="48px"
+                  sizes="96px"
                   className="object-cover object-center"
                 />
               </div>
@@ -88,7 +83,7 @@ export function Testimonial() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
