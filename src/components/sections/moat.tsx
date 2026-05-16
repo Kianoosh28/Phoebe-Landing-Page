@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function Moat() {
   return (
-    <section className="relative py-12 sm:py-20">
+    <section className="relative bg-[#050505] py-12 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <Reveal className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">

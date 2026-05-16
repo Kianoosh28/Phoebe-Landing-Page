@@ -83,31 +83,35 @@ const COMPLIANCE = [
 
 export default function Ecosystem() {
   return (
-    <div className="pt-32 pb-12">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        {/* Hero */}
-        <Reveal className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
-            <Coins size={12} className="text-amethyst" />
-            Ecosystem
-          </div>
-          <h1 className="font-display glitch-reveal text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
-            <span className="bg-gradient-to-br from-amethyst-soft to-amethyst bg-clip-text text-transparent">
-              $PHOB
-            </span>{" "}
-            shapes the circle.{" "}
-            <span className="text-mute-2">The circle shapes the truth.</span>
-          </h1>
-          <p className="mt-6 text-[17px] leading-[1.55] text-mute-2 text-balance max-w-2xl">
-            Phoebe is the sole issuer of $PHOB. Users spend it to follow other
-            forecasters and unlock their feed — and that single primitive is
-            how we engineer blind, semi-blind, and open deliberation
-            conditions. No public price. No herding. No financial stake.
-          </p>
-        </Reveal>
+    <div>
+      {/* Hero — obsidian */}
+      <section className="bg-[#050505] pt-32 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
+              <Coins size={12} className="text-amethyst" />
+              Ecosystem
+            </div>
+            <h1 className="font-display glitch-reveal text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
+              <span className="bg-gradient-to-br from-amethyst-soft to-amethyst bg-clip-text text-transparent">
+                $PHOB
+              </span>{" "}
+              shapes the circle.{" "}
+              <span className="text-mute-2">The circle shapes the truth.</span>
+            </h1>
+            <p className="mt-6 text-[17px] leading-[1.55] text-mute-2 text-balance max-w-2xl">
+              Phoebe is the sole issuer of $PHOB. Users spend it to follow other
+              forecasters and unlock their feed — and that single primitive is
+              how we engineer blind, semi-blind, and open deliberation
+              conditions. No public price. No herding. No financial stake.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-        {/* Mechanic */}
-        <section className="mb-20">
+      {/* Mechanic — charcoal */}
+      <section className="bg-[#0D0D11] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
               <Sparkles size={12} className="text-amethyst" />
@@ -141,10 +145,12 @@ export default function Ecosystem() {
               </RevealItem>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Social Circles */}
-        <section className="mb-20">
+      {/* Social Circles — obsidian */}
+      <section className="bg-[#050505] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
               <Users size={12} className="text-cyan" />
@@ -183,10 +189,12 @@ export default function Ecosystem() {
               </RevealItem>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Why this isn't gambling */}
-        <section className="mb-20">
+      {/* Why this isn't gambling — charcoal */}
+      <section className="bg-[#0D0D11] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
               <Shield size={12} className="text-cyan" />
@@ -220,10 +228,12 @@ export default function Ecosystem() {
               </RevealItem>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Compliance */}
-        <section id="compliance" className="mb-20">
+      {/* Compliance — obsidian */}
+      <section id="compliance" className="bg-[#050505] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
               <Shield size={12} className="text-amethyst" />
@@ -252,38 +262,40 @@ export default function Ecosystem() {
               </RevealItem>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer CTA */}
-        <section id="legal">
+      {/* Footer CTA — charcoal */}
+      <section id="legal" className="bg-[#0D0D11] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-14 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-6">
-            <ScrollText size={12} className="text-amethyst" />
-            For Legal & Counsel Teams
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-[-0.025em] text-white max-w-3xl mx-auto text-balance">
-            Need the full token-mechanics paper?
-          </h2>
-          <p className="mt-4 text-[16px] text-mute-2 max-w-2xl mx-auto">
-            We share an extended legal memo and token-economics whitepaper with
-            qualified counsel on request.
-          </p>
-          <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="mailto:tech_admin@phoebeapp.io?subject=Phoebe%20Whitepaper%20Request">
-              <Button variant="primary" size="lg">
-                Request Whitepaper
-                <ArrowRight size={16} />
-              </Button>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" size="lg">
-                Back to Engine
-              </Button>
-            </Link>
-          </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-6">
+              <ScrollText size={12} className="text-amethyst" />
+              For Legal & Counsel Teams
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-[48px] font-semibold tracking-[-0.025em] text-white max-w-3xl mx-auto text-balance">
+              Need the full token-mechanics paper?
+            </h2>
+            <p className="mt-4 text-[16px] text-mute-2 max-w-2xl mx-auto">
+              We share an extended legal memo and token-economics whitepaper with
+              qualified counsel on request.
+            </p>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="mailto:tech_admin@phoebeapp.io?subject=Phoebe%20Whitepaper%20Request">
+                <Button variant="primary" size="lg">
+                  Request Whitepaper
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
+              <Link href="/">
+                <Button variant="outline" size="lg">
+                  Back to Engine
+                </Button>
+              </Link>
+            </div>
           </Reveal>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

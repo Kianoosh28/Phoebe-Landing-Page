@@ -12,7 +12,7 @@ export function Hero() {
   const { open: openPilot } = usePilotModal();
   const { open: openWaitlist } = useWaitlistModal();
   return (
-    <section className="relative overflow-hidden pt-32 sm:pt-40 pb-12 sm:pb-16">
+    <section className="relative overflow-hidden bg-[#050505] pt-32 sm:pt-40 pb-12 sm:pb-16">
       {/* Backdrop */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-bg opacity-60" />

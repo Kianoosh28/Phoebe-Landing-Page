@@ -33,7 +33,7 @@ const GRANTS = [
 
 export function Science() {
   return (
-    <section className="relative py-12 sm:py-20 overflow-hidden">
+    <section className="relative bg-[#050505] py-12 sm:py-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/3 h-[420px] w-[640px] rounded-full bg-amethyst/8 blur-3xl" />
       </div>

@@ -52,29 +52,34 @@ const PRINCIPLES = [
 
 export default function ScienceLibrary() {
   return (
-    <div className="pt-32 pb-12">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <Reveal className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
-            <Brain size={12} className="text-amethyst" />
-            Science Library
-          </div>
-          <h1 className="font-display glitch-reveal text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
-            Phoebe&apos;s{" "}
-            <span className="bg-gradient-to-br from-cyan to-amethyst bg-clip-text text-transparent">
-              Neuro-Edge
-            </span>{" "}
-            is peer-reviewed.
-          </h1>
-          <p className="mt-6 text-[17px] leading-[1.55] text-mute-2 text-balance max-w-2xl">
-            The aggregation, calibration, and deliberation mechanics that power
-            the Intelligence Engine sit on a foundation of published cognitive
-            science from CSO Bahador Bahrami and collaborators.
-          </p>
-        </Reveal>
+    <div>
+      {/* Hero — obsidian */}
+      <section className="bg-[#050505] pt-32 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <Reveal className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
+              <Brain size={12} className="text-amethyst" />
+              Science Library
+            </div>
+            <h1 className="font-display glitch-reveal text-5xl sm:text-6xl lg:text-[72px] font-semibold tracking-[-0.025em] leading-[0.98] text-white text-balance">
+              Phoebe&apos;s{" "}
+              <span className="bg-gradient-to-br from-cyan to-amethyst bg-clip-text text-transparent">
+                Neuro-Edge
+              </span>{" "}
+              is peer-reviewed.
+            </h1>
+            <p className="mt-6 text-[17px] leading-[1.55] text-mute-2 text-balance max-w-2xl">
+              The aggregation, calibration, and deliberation mechanics that power
+              the Intelligence Engine sit on a foundation of published cognitive
+              science from CSO Bahador Bahrami and collaborators.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-        {/* Principles */}
-        <div className="mb-20">
+      {/* Principles — charcoal */}
+      <section className="bg-[#0D0D11] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Four operating principles
           </Reveal>
@@ -98,9 +103,11 @@ export default function ScienceLibrary() {
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Papers */}
-        <div>
+      {/* Papers — obsidian */}
+      <section className="bg-[#050505] py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Peer-reviewed papers
           </Reveal>
@@ -156,7 +163,7 @@ export default function ScienceLibrary() {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
