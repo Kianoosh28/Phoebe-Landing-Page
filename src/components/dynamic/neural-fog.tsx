@@ -171,7 +171,7 @@ export function NeuralFog() {
     <canvas
       ref={canvasRef}
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-0 opacity-80"
+      className="pointer-events-none fixed inset-0 z-30 opacity-90 mix-blend-screen"
     />
   );
 }

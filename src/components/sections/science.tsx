@@ -26,14 +26,13 @@ const PAPERS = [
 
 const GRANTS = [
   { src: "/ERC.png", alt: "European Research Council" },
-  { src: "/PEPR-eNSEMBLE.png", alt: "PEPR eNSEMBLE" },
   { src: "/France2030.png", alt: "France 2030" },
   { src: "/FrenchTech.png", alt: "French Tech" },
 ];
 
 export function Science() {
   return (
-    <section className="relative bg-[#050505] py-12 sm:py-20 overflow-hidden">
+    <section className="relative bg-[#050505]/85 py-12 sm:py-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute right-0 top-1/3 h-[420px] w-[640px] rounded-full bg-amethyst/8 blur-3xl" />
       </div>
@@ -66,14 +65,14 @@ export function Science() {
               {GRANTS.map((g) => (
                 <div
                   key={g.alt}
-                  className="relative h-[84px] w-[84px] sm:h-[94px] sm:w-[94px] rounded-full overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
+                  className="relative h-[109px] w-[109px] sm:h-[122px] sm:w-[122px] rounded-full overflow-hidden transition-transform duration-300 hover:-translate-y-0.5"
                   title={g.alt}
                 >
                   <Image
                     src={g.src}
                     alt={g.alt}
-                    width={188}
-                    height={188}
+                    width={244}
+                    height={244}
                     className="h-full w-full object-cover"
                   />
                 </div>

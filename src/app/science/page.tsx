@@ -54,7 +54,7 @@ export default function ScienceLibrary() {
   return (
     <div>
       {/* Hero — obsidian */}
-      <section className="bg-[#050505] pt-32 pb-16 sm:pb-20">
+      <section className="bg-[#050505]/85 pt-32 pb-16 sm:pb-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
@@ -78,7 +78,7 @@ export default function ScienceLibrary() {
       </section>
 
       {/* Principles — charcoal */}
-      <section className="bg-[#0D0D11] py-16 sm:py-20">
+      <section className="bg-[#0D0D11]/85 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Four operating principles
@@ -106,7 +106,7 @@ export default function ScienceLibrary() {
       </section>
 
       {/* Papers — obsidian */}
-      <section className="bg-[#050505] py-16 sm:py-20">
+      <section className="bg-[#050505]/85 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Peer-reviewed papers
