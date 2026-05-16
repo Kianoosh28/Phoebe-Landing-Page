@@ -5,13 +5,17 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, X } from "lucide-react";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 type WaitlistModalCtx = {
   open: () => void;
@@ -49,6 +53,8 @@ function WaitlistModal() {
   const { isOpen, close } = useWaitlistModal();
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance | undefined>(undefined);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -68,15 +74,18 @@ function WaitlistModal() {
     if (!isOpen) {
       setStatus("idle");
       setError(null);
+      setTurnstileToken(null);
     }
   }, [isOpen]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!turnstileToken) return;
     setStatus("submitting");
     setError(null);
     const form = e.currentTarget;
     const data = new FormData(form);
+    data.set("cf-turnstile-response", turnstileToken);
     try {
       const res = await fetch("https://formspree.io/f/xbdwvdne", {
         method: "POST",
@@ -95,10 +104,14 @@ function WaitlistModal() {
             "Something went wrong. Please try again."
         );
         setStatus("error");
+        turnstileRef.current?.reset();
+        setTurnstileToken(null);
       }
     } catch {
       setError("Network error. Please check your connection and retry.");
       setStatus("error");
+      turnstileRef.current?.reset();
+      setTurnstileToken(null);
     }
   }
 
@@ -191,9 +204,20 @@ function WaitlistModal() {
                     </p>
                   )}
 
+                  <div className="flex justify-center pt-1">
+                    <Turnstile
+                      ref={turnstileRef}
+                      siteKey={TURNSTILE_SITE_KEY}
+                      options={{ theme: "dark" }}
+                      onSuccess={(t) => setTurnstileToken(t)}
+                      onError={() => setTurnstileToken(null)}
+                      onExpire={() => setTurnstileToken(null)}
+                    />
+                  </div>
+
                   <button
                     type="submit"
-                    disabled={status === "submitting"}
+                    disabled={status === "submitting" || !turnstileToken}
                     className={cn(
                       "group relative inline-flex w-full items-center justify-center gap-2 rounded-full bg-amethyst px-6 h-12 text-[15px] font-semibold tracking-tight text-white",
                       "transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed",
