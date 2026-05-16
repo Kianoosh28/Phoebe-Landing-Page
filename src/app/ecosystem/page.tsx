@@ -85,7 +85,7 @@ export default function Ecosystem() {
   return (
     <div>
       {/* Hero — obsidian */}
-      <section className="bg-[#050505]/85 pt-32 pb-16 sm:pb-20">
+      <section className="bg-[#050505] pt-32 pb-16 sm:pb-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-5">
@@ -110,7 +110,7 @@ export default function Ecosystem() {
       </section>
 
       {/* Mechanic — charcoal */}
-      <section className="bg-[#0D0D11]/85 py-16 sm:py-20">
+      <section className="bg-[#0D0D11] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
@@ -149,7 +149,7 @@ export default function Ecosystem() {
       </section>
 
       {/* Social Circles — obsidian */}
-      <section className="bg-[#050505]/85 py-16 sm:py-20">
+      <section className="bg-[#050505] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
@@ -193,7 +193,7 @@ export default function Ecosystem() {
       </section>
 
       {/* Why this isn't gambling — charcoal */}
-      <section className="bg-[#0D0D11]/85 py-16 sm:py-20">
+      <section className="bg-[#0D0D11] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
@@ -232,7 +232,7 @@ export default function Ecosystem() {
       </section>
 
       {/* Compliance — obsidian */}
-      <section id="compliance" className="bg-[#050505]/85 py-16 sm:py-20">
+      <section id="compliance" className="bg-[#050505] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal>
             <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
@@ -266,7 +266,7 @@ export default function Ecosystem() {
       </section>
 
       {/* Footer CTA — charcoal */}
-      <section id="legal" className="bg-[#0D0D11]/85 py-16 sm:py-20">
+      <section id="legal" className="bg-[#0D0D11] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="rounded-3xl border border-line-strong bg-gradient-to-b from-obsidian-100 to-obsidian-50 p-10 sm:p-14 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-mute-2 mb-6">
