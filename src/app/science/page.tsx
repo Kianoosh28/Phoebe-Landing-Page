@@ -78,7 +78,7 @@ export default function ScienceLibrary() {
       </section>
 
       {/* Principles — charcoal */}
-      <section className="bg-[#0D0D11] py-16 sm:py-20">
+      <section className="bg-[#16161E] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <Reveal className="text-[11px] uppercase tracking-[0.18em] text-mute font-mono mb-5">
             Four operating principles

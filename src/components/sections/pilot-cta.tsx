@@ -10,7 +10,7 @@ import { usePilotModal } from "@/components/pilot-modal";
 export function PilotCTA() {
   const { open: openPilot } = usePilotModal();
   return (
-    <section id="pilot" className="relative bg-[#0D0D11] py-12 sm:py-16 overflow-hidden">
+    <section id="pilot" className="relative bg-[#16161E] py-12 sm:py-16 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[560px] w-[1100px] rounded-full bg-cyan/8 blur-3xl" />
         <div className="absolute inset-0 grid-bg opacity-40" />
