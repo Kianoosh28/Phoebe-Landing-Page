@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 
 export function Testimonial() {
@@ -51,8 +52,14 @@ export function Testimonial() {
             </span>
 
             <div className="mt-9 flex items-center gap-4">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-amethyst/30 to-cyan/30 border border-line flex items-center justify-center font-display font-semibold text-white">
-                GG
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-cyan/40 bg-black/40">
+                <Image
+                  src="/Greg.jpg"
+                  alt="Greg Gobbi"
+                  fill
+                  sizes="48px"
+                  className="object-cover object-center"
+                />
               </div>
               <div>
                 <div className="text-white font-medium">Greg Gobbi</div>
