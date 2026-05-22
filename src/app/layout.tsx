@@ -50,6 +50,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${schibsted.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30 overflow-x-clip">
         <PilotModalProvider>

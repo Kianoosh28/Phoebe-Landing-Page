@@ -57,7 +57,7 @@ const FOUNDERS: Founder[] = [
     linkedin: "https://linkedin.com/in/bahador-bahrami",
   },
   {
-    photo: "/Bernard.jpg",
+    photo: "/Bernard.png",
     name: "Bernard Okwampah",
     role: "Co-Founder & CTO",
     bio: "AI engineer with deep cybersecurity expertise. Architects Phoebe's merit-weighting algorithms and the platform's trust layer.",
