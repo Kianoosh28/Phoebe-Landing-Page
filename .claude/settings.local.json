@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(shasum *)"
+      "Bash(shasum *)",
+      "Bash(aws route53 *)",
+      "Bash(dig +short phoebeapp.io @8.8.8.8)",
+      "Bash(dig +short www.phoebeapp.io @8.8.8.8)",
+      "Bash(dig +short phoebeapp.io @ns-348.awsdns-43.com)",
+      "Bash(curl -sI -H \"Host: phoebeapp.io\" https://phoebeapp.io --max-time 10)",
+      "Bash(/usr/bin/curl -sI https://phoebeapp.io --max-time 10)",
+      "Bash(/usr/bin/curl -sIv https://phoebeapp.io --max-time 15)",
+      "Bash(cp public/logo.svg src/app/icon.svg)",
+      "Bash(rm src/app/favicon.ico)",
+      "Bash(cp public/favicon.ico src/app/favicon.ico)",
+      "Bash(rm public/favicon.ico src/app/icon.svg)"
     ]
   }
 }
