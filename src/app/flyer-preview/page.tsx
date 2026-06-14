@@ -216,9 +216,9 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/vivatech-logo.svg?v=2"
+              src="/vivatech-logo.svg?v=3"
               alt="VivaTech"
-              style={{ maxHeight: "32px", maxWidth: "100%", width: "auto" }}
+              style={{ maxHeight: "96px", maxWidth: "100%", width: "auto" }}
             />
           </div>
 
@@ -229,9 +229,9 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/kpmg-logo.svg?v=2"
+              src="/kpmg-logo.svg?v=3"
               alt="KPMG"
-              style={{ maxHeight: "28px", maxWidth: "100%", width: "auto" }}
+              style={{ maxHeight: "84px", maxWidth: "100%", width: "auto" }}
             />
           </div>
         </div>
