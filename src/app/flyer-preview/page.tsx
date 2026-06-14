@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Phoebe × KPMG — VivaTech 2026 Flyer",
-  description: "Double-sided A5 print preview for the VivaTech 2026 booth flyer.",
+  description: "Double-sided square print preview for the VivaTech 2026 booth flyer.",
   robots: { index: false, follow: false },
 };
 
@@ -99,9 +99,9 @@ function QrFrame({ accent, label }: { accent: string; label: string }) {
 function SideA({ logoSvg }: { logoSvg: string }) {
   return (
     <article
-      className="flyer-card relative flex flex-col text-white"
+      className="flyer-card relative flex shrink-0 flex-col text-white"
       style={{
-        width: "148mm",
+        width: "210mm",
         height: "210mm",
         background: "#050505",
         padding: "12mm",
@@ -148,10 +148,11 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         className="mt-5 font-display text-balance"
         style={{
           fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-          fontSize: "22pt",
-          lineHeight: 1.05,
-          letterSpacing: "-0.025em",
+          fontSize: "30pt",
+          lineHeight: 1.03,
+          letterSpacing: "-0.03em",
           fontWeight: 800,
+          maxWidth: "160mm",
         }}
       >
         Stop Guessing the Future of ESG.{" "}
@@ -161,7 +162,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* Body */}
       <p
         className="mt-4 text-white/75"
-        style={{ fontSize: "9pt", lineHeight: 1.45 }}
+        style={{ fontSize: "9pt", lineHeight: 1.45, maxWidth: "120mm" }}
       >
         Surface-level metrics only show you where the world was. Phoebe shows
         you where it is going. Featured with KPMG at VivaTech 2026, our
@@ -173,7 +174,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* Pillars container with brutalist 1px border */}
       <div
         className="mt-5 p-3"
-        style={{ border: `1px solid ${CYAN}` }}
+        style={{ border: `1px solid ${CYAN}`, maxWidth: "160mm" }}
       >
         <ul className="space-y-2.5" style={{ fontSize: "8.75pt" }}>
           <Pillar
@@ -251,9 +252,9 @@ function SideA({ logoSvg }: { logoSvg: string }) {
 function SideB({ logoSvg }: { logoSvg: string }) {
   return (
     <article
-      className="flyer-card relative flex flex-col text-white"
+      className="flyer-card relative flex shrink-0 flex-col text-white"
       style={{
-        width: "148mm",
+        width: "210mm",
         height: "210mm",
         background: "#0D0D11",
         padding: "12mm",
@@ -300,10 +301,11 @@ function SideB({ logoSvg }: { logoSvg: string }) {
         className="mt-5 font-display text-balance"
         style={{
           fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-          fontSize: "22pt",
-          lineHeight: 1.05,
-          letterSpacing: "-0.025em",
+          fontSize: "30pt",
+          lineHeight: 1.03,
+          letterSpacing: "-0.03em",
           fontWeight: 800,
+          maxWidth: "160mm",
         }}
       >
         Your Perspective is the Missing Signal.{" "}
@@ -313,7 +315,7 @@ function SideB({ logoSvg }: { logoSvg: string }) {
       {/* Body */}
       <p
         className="mt-4 text-white/75"
-        style={{ fontSize: "9pt", lineHeight: 1.45 }}
+        style={{ fontSize: "9pt", lineHeight: 1.45, maxWidth: "120mm" }}
       >
         In traditional consensus tracking, outlier data is discarded. At
         Phoebe, we know better. Whether your predictions are perfectly accurate
@@ -326,7 +328,7 @@ function SideB({ logoSvg }: { logoSvg: string }) {
       {/* Pillars container */}
       <div
         className="mt-5 p-3"
-        style={{ border: `1px solid ${AMETHYST}` }}
+        style={{ border: `1px solid ${AMETHYST}`, maxWidth: "160mm" }}
       >
         <ul className="space-y-2.5" style={{ fontSize: "8.75pt" }}>
           <Pillar
@@ -426,7 +428,7 @@ function SideB({ logoSvg }: { logoSvg: string }) {
 
 const PRINT_CSS = `
 @page {
-  size: A5;
+  size: 210mm 210mm;
   margin: 0;
 }
 
@@ -461,7 +463,7 @@ const PRINT_CSS = `
     background: transparent !important;
   }
   .flyer-card {
-    width: 148mm !important;
+    width: 210mm !important;
     height: 210mm !important;
     margin: 0 !important;
     box-shadow: none !important;
@@ -490,13 +492,13 @@ export default async function FlyerPreviewPage() {
     <>
       <style dangerouslySetInnerHTML={{ __html: PRINT_CSS }} />
       <div id="flyer-print-root" className="min-h-screen bg-[#050505] py-10">
-        <header className="flyer-screen-chrome mx-auto mb-8 flex max-w-[1180px] items-end justify-between px-6">
+        <header className="flyer-screen-chrome mx-auto mb-8 flex max-w-[1700px] items-end justify-between px-6">
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] text-cyan/80">
               PHOEBE × KPMG · VIVATECH 2026
             </div>
             <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight text-white">
-              A5 flyer — print preview
+              Square flyer — print preview
             </h2>
             <p className="mt-1 text-sm text-white/55">
               Side A (Enterprise / Cyan) · Side B (Community / Amethyst). Use{" "}
@@ -507,7 +509,7 @@ export default async function FlyerPreviewPage() {
               <kbd className="rounded border border-white/15 px-1.5 py-0.5 text-[10px]">
                 P
               </kbd>{" "}
-              to print to A5 (148 × 210 mm).
+              to print square (210 × 210 mm).
             </p>
           </div>
           <button
@@ -525,13 +527,13 @@ export default async function FlyerPreviewPage() {
           />
         </header>
 
-        <div className="flyer-stage mx-auto flex max-w-[1180px] flex-col items-center justify-center gap-10 px-6 lg:flex-row lg:items-start lg:gap-8">
+        <div className="flyer-stage mx-auto flex max-w-[1700px] flex-col items-center justify-center gap-10 px-6 lg:flex-row lg:items-start lg:gap-8">
           <SideA logoSvg={logoCyan} />
           <SideB logoSvg={logoAmethyst} />
         </div>
 
-        <footer className="flyer-screen-chrome mx-auto mt-10 max-w-[1180px] px-6 text-center font-mono text-[10px] tracking-[0.3em] text-white/30">
-          A5 · 148 × 210 MM · DOUBLE-SIDED
+        <footer className="flyer-screen-chrome mx-auto mt-10 max-w-[1700px] px-6 text-center font-mono text-[10px] tracking-[0.3em] text-white/30">
+          SQUARE · 210 × 210 MM · DOUBLE-SIDED
         </footer>
       </div>
     </>
