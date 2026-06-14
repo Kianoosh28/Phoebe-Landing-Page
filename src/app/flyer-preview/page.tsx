@@ -96,32 +96,6 @@ function QrFrame({ accent, label }: { accent: string; label: string }) {
   );
 }
 
-function RiskBox({ label, body }: { label: string; body: string }) {
-  return (
-    <div
-      className="px-3 py-2.5"
-      style={{ border: `1px solid ${CYAN}` }}
-    >
-      <span
-        className="font-mono tracking-[0.18em]"
-        style={{ color: CYAN, fontSize: "7.5pt" }}
-      >
-        {label}
-      </span>
-      <span
-        className="font-mono tracking-[0.18em]"
-        style={{ color: CYAN, fontSize: "7.5pt" }}
-      >
-        {" "}
-        //
-      </span>{" "}
-      <span className="text-white/70" style={{ fontSize: "8pt", lineHeight: 1.4 }}>
-        {body}
-      </span>
-    </div>
-  );
-}
-
 function SideA({ logoSvg }: { logoSvg: string }) {
   return (
     <article
@@ -130,7 +104,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         width: "148mm",
         height: "210mm",
         background: "#050505",
-        padding: "12mm",
+        padding: "14mm",
         fontFamily: "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
         boxShadow: "0 30px 80px -40px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(255,255,255,0.04)",
       }}
@@ -141,8 +115,8 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
       <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
-      {/* Logo — top center with generous dark negative space */}
-      <div className="flex justify-center" style={{ paddingTop: "6mm", paddingBottom: "9mm" }}>
+      {/* 1 · Header — centered logo + explicit audience targeting */}
+      <header className="flex flex-col items-center text-center">
         <div
           aria-label="Phoebe"
           dangerouslySetInnerHTML={{
@@ -152,97 +126,104 @@ function SideA({ logoSvg }: { logoSvg: string }) {
             ),
           }}
         />
+        <div
+          className="mt-4 uppercase text-white/85"
+          style={{ fontSize: "7.5pt", letterSpacing: "0.28em", fontWeight: 500 }}
+        >
+          For Corporate Leaders, Policymakers &amp; Risk Officers
+        </div>
+      </header>
+
+      {/* 2 & 3 · Headline, slashed description and minimal bullets — vertically centered */}
+      <div className="flex flex-1 flex-col justify-center">
+        <h1
+          className="font-display"
+          style={{
+            fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+            fontSize: "30pt",
+            lineHeight: 1.0,
+            letterSpacing: "-0.035em",
+            fontWeight: 800,
+            color: "#FFFFFF",
+          }}
+        >
+          Stop Guessing Policy &amp; Climate Risk. Forecast It.
+        </h1>
+
+        <p
+          className="mt-7 text-white/80"
+          style={{ fontSize: "9.5pt", lineHeight: 1.55, maxWidth: "108mm" }}
+        >
+          Phoebe simulates human behavior, compliance friction, and
+          supply-chain bottlenecks to map out macro policy and climate risks
+          months before they unfold.
+        </p>
+
+        <ul
+          className="mt-7 space-y-3 text-white/90"
+          style={{ fontSize: "10pt", letterSpacing: "-0.005em" }}
+        >
+          <li>&mdash; Urban Mobility &amp; ZFE Compliance Risks</li>
+          <li>&mdash; Social Policy &amp; Housing Infrastructure Frictions</li>
+          <li>&mdash; Agrarian Land-Use &amp; Environmental Resource Caps</li>
+        </ul>
       </div>
 
-      {/* Header tag */}
+      {/* 4 · Event Access Pass */}
       <div
-        className="font-mono uppercase tracking-[0.32em]"
-        style={{ color: CYAN, fontSize: "7pt" }}
+        className="flex items-center"
+        style={{ border: `1px solid ${CYAN}`, padding: "6mm" }}
       >
-        KPMG PARIS PAVILION // VIVATECH 2026
-      </div>
+        {/* Partner logos — side by side */}
+        <div className="flex items-center" style={{ gap: "5mm" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/kpmg-logo.png" alt="KPMG" style={{ height: "26px", width: "auto" }} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/vivatech-logo.svg" alt="VivaTech" style={{ height: "26px", width: "auto" }} />
+        </div>
 
-      {/* Massive headline — bold, stark white */}
-      <h1
-        className="mt-3 font-display text-balance"
-        style={{
-          fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-          fontSize: "26pt",
-          lineHeight: 1.02,
-          letterSpacing: "-0.03em",
-          fontWeight: 800,
-          color: "#FFFFFF",
-        }}
-      >
-        Stop Guessing the Future of ESG. Forecast It.
-      </h1>
-
-      {/* Platform core description */}
-      <p
-        className="mt-4 text-white/75"
-        style={{ fontSize: "8.5pt", lineHeight: 1.5 }}
-      >
-        Surface-level metrics only show you where the world was. Phoebe shows
-        you where it is going. Featured with KPMG at VivaTech 2026, our
-        Sovereign Intelligence Engine maps out the hidden human friction,
-        supply chain bottlenecks, and behavioral compliance risks of systemic
-        policy shifts months before they unfold.
-      </p>
-
-      {/* Verticals risk boxes — thin 1px brutalist cyan borders */}
-      <div className="mt-5 space-y-2.5">
-        <RiskBox
-          label="PUBLIC POLICY & MOBILITY"
-          body="Simulating actual commuter compliance thresholds, retail economic impacts, and public pushback on urban mobility restrictions."
+        {/* Divider */}
+        <div
+          aria-hidden
+          style={{ width: "1px", alignSelf: "stretch", background: `${CYAN}55`, margin: "0 6mm" }}
         />
-        <RiskBox
-          label="HEALTH & INFRASTRUCTURE"
-          body="Quantifying capacity shortfalls, hidden psychological friction, and artisan supply-chain bottlenecks in social housing programs."
-        />
-        <RiskBox
-          label="CLIMATE & RESOURCE RISK"
-          body="Forecasting agrarian land-use shifts, supply-chain constraints, and legal/civil escalation risks over regional environmental resource caps."
-        />
-      </div>
 
-      {/* Spacer pushes the anchor block to the lower third */}
-      <div className="flex-1" />
-
-      {/* Bottom anchor divider — razor-thin 1px cyan line */}
-      <div style={{ height: "1px", background: CYAN, width: "100%" }} />
-
-      {/* Call to action */}
-      <div className="mt-4">
-        <p
-          className="font-semibold"
-          style={{ color: "#FFFFFF", fontSize: "12pt", lineHeight: 1.2, letterSpacing: "-0.01em" }}
-        >
-          De-Risk Strategic Policy. Deploy a Private Pilot.
-        </p>
-        <p
-          className="mt-2 text-white/80"
-          style={{ fontSize: "8.5pt", lineHeight: 1.4 }}
-        >
-          Meet our founders live at{" "}
-          <span style={{ color: CYAN }}>VivaTech</span> //{" "}
-          <span style={{ color: CYAN }}>KPMG Pavilion: Hall 7 — Booth 3D09</span>
-        </p>
-      </div>
-
-      {/* Partner logos — minimal co-branding stamps */}
-      <div className="mt-6 flex items-center gap-5">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/kpmg-logo.png"
-          alt="KPMG"
-          style={{ height: "24px", width: "auto", opacity: 0.55 }}
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/vivatech-logo.svg"
-          alt="VivaTech"
-          style={{ height: "24px", width: "auto", opacity: 0.55 }}
-        />
+        {/* Invitation and location */}
+        <div className="flex-1">
+          <div
+            className="uppercase text-white/70"
+            style={{ fontSize: "8pt", letterSpacing: "0.2em", fontWeight: 600 }}
+          >
+            Meet Our Founders Live
+          </div>
+          <div
+            className="mt-1 font-display"
+            style={{
+              fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+              fontSize: "15pt",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-0.01em",
+              color: "#FFFFFF",
+            }}
+          >
+            20 June 2026 // Paris
+          </div>
+          <div
+            className="font-display"
+            style={{
+              fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+              fontSize: "15pt",
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: "-0.01em",
+              color: "#FFFFFF",
+            }}
+          >
+            <span style={{ color: CYAN }}>Hall 7</span> &mdash;{" "}
+            <span style={{ color: CYAN }}>Stand 3D09</span>
+          </div>
+        </div>
       </div>
     </article>
   );
