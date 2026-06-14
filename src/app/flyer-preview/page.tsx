@@ -201,7 +201,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* CTA — dual-column partner enclosure */}
       <div
         className="mt-4 flex flex-col"
-        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "44mm" }}
+        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "54mm" }}
       >
         {/* Inner top center text */}
         <div
@@ -219,7 +219,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
             <img
               src="/vivatech-logo.svg?v=6"
               alt="VivaTech"
-              style={{ maxHeight: "96px", maxWidth: "100%", width: "auto" }}
+              style={{ width: "56mm", maxWidth: "100%", height: "auto" }}
             />
           </div>
 
@@ -232,7 +232,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
             <img
               src="/kpmg-logo.svg?v=5"
               alt="KPMG"
-              style={{ maxHeight: "84px", maxWidth: "100%", width: "auto" }}
+              style={{ width: "56mm", maxWidth: "100%", height: "auto" }}
             />
           </div>
         </div>
