@@ -115,8 +115,8 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
       <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
-      {/* Logo */}
-      <div className="flex items-center justify-between">
+      {/* Logo + target audience box */}
+      <div className="flex items-center justify-between gap-4">
         <div
           className="flex items-center"
           style={{ height: "11mm" }}
@@ -127,20 +127,12 @@ function SideA({ logoSvg }: { logoSvg: string }) {
             ),
           }}
         />
-        <span
-          className="font-mono text-[7pt] tracking-[0.25em]"
-          style={{ color: CYAN }}
+        <div
+          className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
+          style={{ border: `1px solid ${CYAN}`, color: CYAN }}
         >
-          SIDE A · ENTERPRISE
-        </span>
-      </div>
-
-      {/* Tag */}
-      <div
-        className="mt-6 inline-flex self-start px-2 py-1 font-mono text-[7.5pt] tracking-[0.22em]"
-        style={{ border: `1px solid ${CYAN}`, color: CYAN }}
-      >
-        KPMG PARIS PAVILION // VIVATECH 2026
+          ESG DIRECTORS, POLICYMAKERS, AGENCIES, AND RISK MANAGERS
+        </div>
       </div>
 
       {/* Headline */}
