@@ -216,7 +216,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/vivatech-logo.svg?v=4"
+              src="/vivatech-logo.svg?v=6"
               alt="VivaTech"
               style={{ maxHeight: "96px", maxWidth: "100%", width: "auto" }}
             />
