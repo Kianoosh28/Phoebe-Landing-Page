@@ -104,7 +104,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         width: "148mm",
         height: "210mm",
         background: "#050505",
-        padding: "14mm",
+        padding: "12mm",
         fontFamily: "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
         boxShadow: "0 30px 80px -40px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(255,255,255,0.04)",
       }}
@@ -115,115 +115,122 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
       <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
-      {/* 1 · Header — centered logo + explicit audience targeting */}
-      <header className="flex flex-col items-center text-center">
+      {/* Logo */}
+      <div className="flex items-center justify-between">
         <div
-          aria-label="Phoebe"
+          className="flex items-center"
+          style={{ height: "11mm" }}
           dangerouslySetInnerHTML={{
             __html: logoSvg.replace(
               "<svg ",
-              `<svg style="height:13mm;width:auto;display:block" `
+              `<svg style="height:11mm;width:auto;display:block" `
             ),
           }}
         />
-        <div
-          className="mt-4 uppercase text-white/85"
-          style={{ fontSize: "7.5pt", letterSpacing: "0.28em", fontWeight: 500 }}
+        <span
+          className="font-mono text-[7pt] tracking-[0.25em]"
+          style={{ color: CYAN }}
         >
-          For Corporate Leaders, Policymakers &amp; Risk Officers
-        </div>
-      </header>
+          SIDE A · ENTERPRISE
+        </span>
+      </div>
 
-      {/* 2 & 3 · Headline, slashed description and minimal bullets — vertically centered */}
-      <div className="flex flex-1 flex-col justify-center">
-        <h1
-          className="font-display"
-          style={{
-            fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-            fontSize: "30pt",
-            lineHeight: 1.0,
-            letterSpacing: "-0.035em",
-            fontWeight: 800,
-            color: "#FFFFFF",
-          }}
-        >
-          Stop Guessing Policy &amp; Climate Risk. Forecast It.
-        </h1>
+      {/* Tag */}
+      <div
+        className="mt-6 inline-flex self-start px-2 py-1 font-mono text-[7.5pt] tracking-[0.22em]"
+        style={{ border: `1px solid ${CYAN}`, color: CYAN }}
+      >
+        KPMG PARIS PAVILION // VIVATECH 2026
+      </div>
 
-        <p
-          className="mt-7 text-white/80"
-          style={{ fontSize: "9.5pt", lineHeight: 1.55, maxWidth: "108mm" }}
-        >
-          Phoebe simulates human behavior, compliance friction, and
-          supply-chain bottlenecks to map out macro policy and climate risks
-          months before they unfold.
-        </p>
+      {/* Headline */}
+      <h1
+        className="mt-5 font-display text-balance"
+        style={{
+          fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+          fontSize: "22pt",
+          lineHeight: 1.05,
+          letterSpacing: "-0.025em",
+          fontWeight: 800,
+        }}
+      >
+        Stop Guessing the Future of ESG.{" "}
+        <span style={{ color: CYAN }}>Forecast It.</span>
+      </h1>
 
-        <ul
-          className="mt-7 space-y-3 text-white/90"
-          style={{ fontSize: "10pt", letterSpacing: "-0.005em" }}
-        >
-          <li>&mdash; Urban Mobility &amp; ZFE Compliance Risks</li>
-          <li>&mdash; Social Policy &amp; Housing Infrastructure Frictions</li>
-          <li>&mdash; Agrarian Land-Use &amp; Environmental Resource Caps</li>
+      {/* Body */}
+      <p
+        className="mt-4 text-white/75"
+        style={{ fontSize: "9pt", lineHeight: 1.45 }}
+      >
+        Surface-level metrics only show you where the world was. Phoebe shows
+        you where it is going. Featured with KPMG at VivaTech 2026, our
+        Collective Intelligence Engine combines merit-weighted AI with
+        cross-disciplinary expert deliberation to map environmental risks,
+        macro climate legislation, and corporate policy outcomes.
+      </p>
+
+      {/* Pillars container with brutalist 1px border */}
+      <div
+        className="mt-5 p-3"
+        style={{ border: `1px solid ${CYAN}` }}
+      >
+        <ul className="space-y-2.5" style={{ fontSize: "8.75pt" }}>
+          <Pillar
+            accent={CYAN}
+            title="De-Risk Strategy"
+            body="Anticipate shifting EU regulatory frameworks months before final votes."
+          />
+          <Pillar
+            accent={CYAN}
+            title="Unmatched Precision"
+            body="Eliminate generic market noise with localized, multi-variant analytics."
+          />
+          <Pillar
+            accent={CYAN}
+            title="Validated Architecture"
+            body="Built on peer-reviewed behavioral science and blind-testing environments."
+          />
         </ul>
       </div>
 
-      {/* 4 · Event Access Pass */}
+      {/* Spacer pushes CTA to bottom */}
+      <div className="flex-1" />
+
+      {/* CTA row */}
       <div
-        className="flex items-center"
-        style={{ border: `1px solid ${CYAN}`, padding: "6mm" }}
+        className="mt-4 flex items-center gap-4 p-3"
+        style={{ border: `1px solid ${CYAN}` }}
       >
-        {/* Partner logos — side by side */}
-        <div className="flex items-center" style={{ gap: "5mm" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/kpmg-logo.png" alt="KPMG" style={{ height: "26px", width: "auto" }} />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/vivatech-logo.svg" alt="VivaTech" style={{ height: "26px", width: "auto" }} />
-        </div>
-
-        {/* Divider */}
-        <div
-          aria-hidden
-          style={{ width: "1px", alignSelf: "stretch", background: `${CYAN}55`, margin: "0 6mm" }}
-        />
-
-        {/* Invitation and location */}
+        <QrFrame accent={CYAN} label="impact.phoebeapp.io" />
         <div className="flex-1">
           <div
-            className="uppercase text-white/70"
-            style={{ fontSize: "8pt", letterSpacing: "0.2em", fontWeight: 600 }}
+            className="font-mono text-[7pt] tracking-[0.22em] mb-1"
+            style={{ color: CYAN }}
           >
-            Meet Our Founders Live
+            BOOK A PRIVATE PILOT
           </div>
-          <div
-            className="mt-1 font-display"
-            style={{
-              fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-              fontSize: "15pt",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.01em",
-              color: "#FFFFFF",
-            }}
+          <p
+            className="text-white/85"
+            style={{ fontSize: "8.5pt", lineHeight: 1.35 }}
           >
-            20 June 2026 // Paris
-          </div>
+            Scan to book a private pilot demonstration with our founders at the
+            KPMG booth.
+          </p>
           <div
-            className="font-display"
-            style={{
-              fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-              fontSize: "15pt",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.01em",
-              color: "#FFFFFF",
-            }}
+            className="mt-2 font-mono text-[6.5pt] tracking-[0.2em] text-white/40"
           >
-            <span style={{ color: CYAN }}>Hall 7</span> &mdash;{" "}
-            <span style={{ color: CYAN }}>Stand 3D09</span>
+            impact.phoebeapp.io
           </div>
         </div>
+      </div>
+
+      {/* Footer microcopy */}
+      <div
+        className="mt-3 flex items-center justify-between font-mono text-[6pt] tracking-[0.25em] text-white/35"
+      >
+        <span>PHOEBE · SOVEREIGN INTELLIGENCE ENGINE</span>
+        <span>EU · 2026</span>
       </div>
     </article>
   );
