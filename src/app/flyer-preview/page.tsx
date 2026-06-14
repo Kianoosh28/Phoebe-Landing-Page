@@ -229,7 +229,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/kpmg-logo.svg?v=3"
+              src="/kpmg-logo.svg?v=5"
               alt="KPMG"
               style={{ maxHeight: "84px", maxWidth: "100%", width: "auto" }}
             />
