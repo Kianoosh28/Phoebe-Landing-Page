@@ -56,6 +56,33 @@ function Pillar({
   );
 }
 
+function ScenarioBox({
+  title,
+  body,
+  accent,
+}: {
+  title: string;
+  body: string;
+  accent: string;
+}) {
+  return (
+    <div
+      className="flex flex-col p-3"
+      style={{ border: `1px solid ${accent}`, background: `${accent}0A` }}
+    >
+      <div
+        className="font-mono font-bold uppercase tracking-[0.1em]"
+        style={{ color: accent, fontSize: "8pt", lineHeight: 1.2 }}
+      >
+        {title}
+      </div>
+      <p className="mt-2 text-white/75" style={{ fontSize: "8pt", lineHeight: 1.4 }}>
+        {body}
+      </p>
+    </div>
+  );
+}
+
 function QrFrame({ accent, label }: { accent: string; label: string }) {
   return (
     <div
@@ -163,28 +190,23 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         macro climate legislation, and corporate policy outcomes.
       </p>
 
-      {/* Pillars container with brutalist 1px border */}
-      <div
-        className="mt-5 p-3"
-        style={{ border: `1px solid ${CYAN}`, maxWidth: "160mm" }}
-      >
-        <ul className="space-y-2.5" style={{ fontSize: "8.75pt" }}>
-          <Pillar
-            accent={CYAN}
-            title="De-Risk Strategy"
-            body="Anticipate shifting EU regulatory frameworks months before final votes."
-          />
-          <Pillar
-            accent={CYAN}
-            title="Unmatched Precision"
-            body="Eliminate generic market noise with localized, multi-variant analytics."
-          />
-          <Pillar
-            accent={CYAN}
-            title="Validated Architecture"
-            body="Built on peer-reviewed behavioral science and blind-testing environments."
-          />
-        </ul>
+      {/* Scenario panels — 3 side-by-side brutalist boxes */}
+      <div className="mt-5 grid grid-cols-3 gap-4">
+        <ScenarioBox
+          accent={CYAN}
+          title="Public Policy & Mobility"
+          body="Simulating actual commuter compliance thresholds, retail economic impacts, and public pushback on urban mobility restrictions."
+        />
+        <ScenarioBox
+          accent={CYAN}
+          title="Health & Infrastructure"
+          body="Quantifying capacity shortfalls, hidden psychological friction, and artisan supply-chain bottlenecks in social housing programs."
+        />
+        <ScenarioBox
+          accent={CYAN}
+          title="Climate & Resource Risk"
+          body="Forecasting agrarian land-use shifts, supply-chain constraints, and legal/civil escalation risks over regional environmental resource caps."
+        />
       </div>
 
       {/* Spacer pushes CTA to bottom */}
