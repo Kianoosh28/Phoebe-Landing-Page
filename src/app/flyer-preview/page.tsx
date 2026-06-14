@@ -96,6 +96,32 @@ function QrFrame({ accent, label }: { accent: string; label: string }) {
   );
 }
 
+function RiskBox({ label, body }: { label: string; body: string }) {
+  return (
+    <div
+      className="px-3 py-2.5"
+      style={{ border: `1px solid ${CYAN}` }}
+    >
+      <span
+        className="font-mono tracking-[0.18em]"
+        style={{ color: CYAN, fontSize: "7.5pt" }}
+      >
+        {label}
+      </span>
+      <span
+        className="font-mono tracking-[0.18em]"
+        style={{ color: CYAN, fontSize: "7.5pt" }}
+      >
+        {" "}
+        //
+      </span>{" "}
+      <span className="text-white/70" style={{ fontSize: "8pt", lineHeight: 1.4 }}>
+        {body}
+      </span>
+    </div>
+  );
+}
+
 function SideA({ logoSvg }: { logoSvg: string }) {
   return (
     <article
@@ -115,122 +141,113 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
       <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
-      {/* Logo */}
-      <div className="flex items-center justify-between">
+      {/* Logo — top center with generous dark negative space */}
+      <div className="flex justify-center" style={{ paddingTop: "6mm", paddingBottom: "9mm" }}>
         <div
-          className="flex items-center"
-          style={{ height: "11mm" }}
+          aria-label="Phoebe"
           dangerouslySetInnerHTML={{
             __html: logoSvg.replace(
               "<svg ",
-              `<svg style="height:11mm;width:auto;display:block" `
+              `<svg style="height:13mm;width:auto;display:block" `
             ),
           }}
         />
-        <span
-          className="font-mono text-[7pt] tracking-[0.25em]"
-          style={{ color: CYAN }}
-        >
-          SIDE A · ENTERPRISE
-        </span>
       </div>
 
-      {/* Tag */}
+      {/* Header tag */}
       <div
-        className="mt-6 inline-flex self-start px-2 py-1 font-mono text-[7.5pt] tracking-[0.22em]"
-        style={{ border: `1px solid ${CYAN}`, color: CYAN }}
+        className="font-mono uppercase tracking-[0.32em]"
+        style={{ color: CYAN, fontSize: "7pt" }}
       >
         KPMG PARIS PAVILION // VIVATECH 2026
       </div>
 
-      {/* Headline */}
+      {/* Massive headline — bold, stark white */}
       <h1
-        className="mt-5 font-display text-balance"
+        className="mt-3 font-display text-balance"
         style={{
           fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-          fontSize: "22pt",
-          lineHeight: 1.05,
-          letterSpacing: "-0.025em",
+          fontSize: "26pt",
+          lineHeight: 1.02,
+          letterSpacing: "-0.03em",
           fontWeight: 800,
+          color: "#FFFFFF",
         }}
       >
-        Stop Guessing the Future of ESG.{" "}
-        <span style={{ color: CYAN }}>Forecast It.</span>
+        Stop Guessing the Future of ESG. Forecast It.
       </h1>
 
-      {/* Body */}
+      {/* Platform core description */}
       <p
         className="mt-4 text-white/75"
-        style={{ fontSize: "9pt", lineHeight: 1.45 }}
+        style={{ fontSize: "8.5pt", lineHeight: 1.5 }}
       >
         Surface-level metrics only show you where the world was. Phoebe shows
         you where it is going. Featured with KPMG at VivaTech 2026, our
-        Collective Intelligence Engine combines merit-weighted AI with
-        cross-disciplinary expert deliberation to map environmental risks,
-        macro climate legislation, and corporate policy outcomes.
+        Sovereign Intelligence Engine maps out the hidden human friction,
+        supply chain bottlenecks, and behavioral compliance risks of systemic
+        policy shifts months before they unfold.
       </p>
 
-      {/* Pillars container with brutalist 1px border */}
-      <div
-        className="mt-5 p-3"
-        style={{ border: `1px solid ${CYAN}` }}
-      >
-        <ul className="space-y-2.5" style={{ fontSize: "8.75pt" }}>
-          <Pillar
-            accent={CYAN}
-            title="De-Risk Strategy"
-            body="Anticipate shifting EU regulatory frameworks months before final votes."
-          />
-          <Pillar
-            accent={CYAN}
-            title="Unmatched Precision"
-            body="Eliminate generic market noise with localized, multi-variant analytics."
-          />
-          <Pillar
-            accent={CYAN}
-            title="Validated Architecture"
-            body="Built on peer-reviewed behavioral science and blind-testing environments."
-          />
-        </ul>
+      {/* Verticals risk boxes — thin 1px brutalist cyan borders */}
+      <div className="mt-5 space-y-2.5">
+        <RiskBox
+          label="PUBLIC POLICY & MOBILITY"
+          body="Simulating actual commuter compliance thresholds, retail economic impacts, and public pushback on urban mobility restrictions."
+        />
+        <RiskBox
+          label="HEALTH & INFRASTRUCTURE"
+          body="Quantifying capacity shortfalls, hidden psychological friction, and artisan supply-chain bottlenecks in social housing programs."
+        />
+        <RiskBox
+          label="CLIMATE & RESOURCE RISK"
+          body="Forecasting agrarian land-use shifts, supply-chain constraints, and legal/civil escalation risks over regional environmental resource caps."
+        />
       </div>
 
-      {/* Spacer pushes CTA to bottom */}
+      {/* Spacer pushes the anchor block to the lower third */}
       <div className="flex-1" />
 
-      {/* CTA row */}
-      <div
-        className="mt-4 flex items-center gap-4 p-3"
-        style={{ border: `1px solid ${CYAN}` }}
-      >
-        <QrFrame accent={CYAN} label="impact.phoebeapp.io" />
-        <div className="flex-1">
-          <div
-            className="font-mono text-[7pt] tracking-[0.22em] mb-1"
-            style={{ color: CYAN }}
-          >
-            BOOK A PRIVATE PILOT
-          </div>
-          <p
-            className="text-white/85"
-            style={{ fontSize: "8.5pt", lineHeight: 1.35 }}
-          >
-            Scan to book a private pilot demonstration with our founders at the
-            KPMG booth.
-          </p>
-          <div
-            className="mt-2 font-mono text-[6.5pt] tracking-[0.2em] text-white/40"
-          >
-            impact.phoebeapp.io
-          </div>
-        </div>
+      {/* Bottom anchor divider — razor-thin 1px cyan line */}
+      <div style={{ height: "1px", background: CYAN, width: "100%" }} />
+
+      {/* Call to action */}
+      <div className="mt-4">
+        <p
+          className="font-semibold"
+          style={{ color: "#FFFFFF", fontSize: "12pt", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+        >
+          De-Risk Strategic Policy. Deploy a Private Pilot.
+        </p>
+        <p
+          className="mt-2 text-white/80"
+          style={{ fontSize: "8.5pt", lineHeight: 1.4 }}
+        >
+          Meet our founders live at{" "}
+          <span style={{ color: CYAN }}>VivaTech</span> //{" "}
+          <span style={{ color: CYAN }}>KPMG Pavilion: Hall 7 — Booth 3D09</span>
+        </p>
       </div>
 
-      {/* Footer microcopy */}
-      <div
-        className="mt-3 flex items-center justify-between font-mono text-[6pt] tracking-[0.25em] text-white/35"
-      >
-        <span>PHOEBE · SOVEREIGN INTELLIGENCE ENGINE</span>
-        <span>EU · 2026</span>
+      {/* Partner logos — minimal co-branding stamps */}
+      <div className="mt-6 flex items-center gap-5">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/kpmg-logo.png"
+          alt="KPMG"
+          style={{ height: "24px", width: "auto", opacity: 0.55 }}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/vivatech-logo.svg"
+          alt="VivaTech"
+          style={{
+            height: "24px",
+            width: "auto",
+            opacity: 0.55,
+            filter: "brightness(0) invert(1)",
+          }}
+        />
       </div>
     </article>
   );
