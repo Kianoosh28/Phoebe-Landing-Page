@@ -204,7 +204,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       >
         {/* Inner top center text */}
         <div
-          className="text-center uppercase"
+          className="text-center uppercase font-mono"
           style={{ color: "#FFFFFF", fontSize: "9pt", letterSpacing: "0.24em", fontWeight: 600 }}
         >
           Meet Our Founders at:
