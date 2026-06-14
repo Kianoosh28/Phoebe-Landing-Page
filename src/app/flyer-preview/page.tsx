@@ -241,12 +241,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         <img
           src="/vivatech-logo.svg"
           alt="VivaTech"
-          style={{
-            height: "24px",
-            width: "auto",
-            opacity: 0.55,
-            filter: "brightness(0) invert(1)",
-          }}
+          style={{ height: "24px", width: "auto", opacity: 0.55 }}
         />
       </div>
     </article>
