@@ -197,30 +197,42 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* Spacer pushes CTA to bottom */}
       <div className="flex-1" />
 
-      {/* CTA row */}
+      {/* CTA — dual-column partner enclosure */}
       <div
-        className="mt-4 flex items-center gap-4 p-3"
-        style={{ border: `1px solid ${CYAN}` }}
+        className="mt-4 flex flex-col"
+        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "44mm" }}
       >
-        <QrFrame accent={CYAN} label="impact.phoebeapp.io" />
-        <div className="flex-1">
-          <div
-            className="font-mono text-[7pt] tracking-[0.22em] mb-1"
-            style={{ color: CYAN }}
-          >
-            BOOK A PRIVATE PILOT
+        {/* Inner top center text */}
+        <div
+          className="text-center uppercase"
+          style={{ color: "#FFFFFF", fontSize: "9pt", letterSpacing: "0.24em", fontWeight: 600 }}
+        >
+          Meet Our Founders at:
+        </div>
+
+        {/* Remaining space split into two equal halves by a vertical divider */}
+        <div className="flex flex-1" style={{ marginTop: "4mm" }}>
+          {/* Left half — VivaTech */}
+          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/vivatech-logo.svg"
+              alt="VivaTech"
+              style={{ maxHeight: "32px", maxWidth: "100%", width: "auto" }}
+            />
           </div>
-          <p
-            className="text-white/85"
-            style={{ fontSize: "8.5pt", lineHeight: 1.35 }}
-          >
-            Scan to book a private pilot demonstration with our founders at the
-            KPMG booth.
-          </p>
-          <div
-            className="mt-2 font-mono text-[6.5pt] tracking-[0.2em] text-white/40"
-          >
-            impact.phoebeapp.io
+
+          {/* Vertical divider — splits the remaining space into two equal halves */}
+          <div aria-hidden style={{ width: "1px", alignSelf: "stretch", background: CYAN }} />
+
+          {/* Right half — KPMG */}
+          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/kpmg-logo.png"
+              alt="KPMG"
+              style={{ maxHeight: "28px", maxWidth: "100%", width: "auto" }}
+            />
           </div>
         </div>
       </div>
