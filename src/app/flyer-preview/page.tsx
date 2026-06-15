@@ -67,12 +67,12 @@ function ScenarioBox({
 }) {
   return (
     <div
-      className="flex flex-col p-4"
-      style={{ border: `1px solid ${accent}`, background: `${accent}0A` }}
+      className="flex flex-col border border-zinc-800 px-3 py-4"
+      style={{ background: `${accent}0A` }}
     >
       <div
-        className="text-center font-mono font-bold uppercase tracking-[0.1em]"
-        style={{ color: accent, fontSize: "9.5pt", lineHeight: 1.2 }}
+        className="text-center font-mono font-bold uppercase tracking-[0.06em] text-balance"
+        style={{ color: accent, fontSize: "9.5pt", lineHeight: 1.25 }}
       >
         {title}
       </div>
@@ -158,26 +158,38 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
           style={{ border: `1px solid ${CYAN}`, color: CYAN }}
         >
-          ESG DIRECTORS, POLICYMAKERS, AGENCIES, AND RISK MANAGERS
+          CORE USER BASE // ESG DIRECTORS, POLICYMAKERS, AGENCIES, AND RISK MANAGERS
         </div>
       </div>
 
       {/* Headline + intro — one section */}
       <div>
-        <h1
-          className="font-display text-balance"
-          style={{
-            fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-            fontSize: "30pt",
-            lineHeight: 1.03,
-            letterSpacing: "-0.03em",
-            fontWeight: 800,
-            maxWidth: "160mm",
-          }}
-        >
-          Stop Guessing the Future.
-          <br />
-          <span style={{ color: CYAN }}>Forecast It.</span>
+        <h1 className="font-display" style={{ maxWidth: "160mm" }}>
+          <span
+            className="block font-mono"
+            style={{
+              fontSize: "19pt",
+              fontWeight: 500,
+              letterSpacing: "-0.01em",
+              lineHeight: 1.1,
+              color: "#FFFFFF",
+            }}
+          >
+            Stop Guessing the Future.
+          </span>
+          <span
+            className="block"
+            style={{
+              fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+              fontSize: "34pt",
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.0,
+              color: CYAN,
+            }}
+          >
+            Forecast It.
+          </span>
         </h1>
 
         <p
@@ -214,7 +226,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* CTA — dual-column partner enclosure */}
       <div
         className="flex flex-col"
-        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "54mm" }}
+        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "60mm" }}
       >
         {/* Inner top center text */}
         <div
@@ -248,6 +260,14 @@ function SideA({ logoSvg }: { logoSvg: string }) {
               style={{ width: "56mm", maxWidth: "100%", height: "auto" }}
             />
           </div>
+        </div>
+
+        {/* Web destination */}
+        <div
+          className="text-center font-mono lowercase"
+          style={{ color: CYAN, fontSize: "8pt", letterSpacing: "0.15em", marginTop: "3mm" }}
+        >
+          impact.phoebeapp.io
         </div>
       </div>
 
