@@ -72,11 +72,11 @@ function ScenarioBox({
     >
       <div
         className="text-center font-mono font-bold uppercase tracking-[0.1em]"
-        style={{ color: accent, fontSize: "8pt", lineHeight: 1.2 }}
+        style={{ color: accent, fontSize: "9.5pt", lineHeight: 1.2 }}
       >
         {title}
       </div>
-      <p className="mt-3 text-white/75" style={{ fontSize: "9pt", lineHeight: 1.45 }}>
+      <p className="mt-3 text-white/75" style={{ fontSize: "10.5pt", lineHeight: 1.45 }}>
         {body}
       </p>
     </div>
@@ -162,34 +162,35 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         </div>
       </div>
 
-      {/* Headline */}
-      <h1
-        className="font-display text-balance"
-        style={{
-          fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
-          fontSize: "30pt",
-          lineHeight: 1.03,
-          letterSpacing: "-0.03em",
-          fontWeight: 800,
-          maxWidth: "160mm",
-        }}
-      >
-        Stop Guessing the Future.
-        <br />
-        <span style={{ color: CYAN }}>Forecast It.</span>
-      </h1>
+      {/* Headline + intro — one section */}
+      <div>
+        <h1
+          className="font-display text-balance"
+          style={{
+            fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
+            fontSize: "30pt",
+            lineHeight: 1.03,
+            letterSpacing: "-0.03em",
+            fontWeight: 800,
+            maxWidth: "160mm",
+          }}
+        >
+          Stop Guessing the Future.
+          <br />
+          <span style={{ color: CYAN }}>Forecast It.</span>
+        </h1>
 
-      {/* Body */}
-      <p
-        className="text-white/75"
-        style={{ fontSize: "9pt", lineHeight: 1.45, maxWidth: "120mm" }}
-      >
-        Surface-level metrics only show you where the world was. Phoebe shows
-        you where it is going. Our Collective Intelligence + AI-Powered Engine
-        maps out the hidden human friction, supply chain bottlenecks, and
-        behavioral compliance risks of systemic policy shifts months before
-        they unfold.
-      </p>
+        <p
+          className="mt-4 text-white/75"
+          style={{ fontSize: "10.5pt", lineHeight: 1.45, maxWidth: "120mm" }}
+        >
+          Surface-level metrics only show you where the world was. Phoebe shows
+          you where it is going. Our Collective Intelligence + AI-Powered Engine
+          maps out the hidden human friction, supply chain bottlenecks, and
+          behavioral compliance risks of systemic policy shifts months before
+          they unfold.
+        </p>
+      </div>
 
       {/* Scenario panels — 3 side-by-side brutalist boxes */}
       <div className="grid grid-cols-3 gap-4">
