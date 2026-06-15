@@ -146,11 +146,11 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <div className="flex items-center justify-between gap-4">
         <div
           className="flex items-center"
-          style={{ height: "11mm" }}
+          style={{ height: "14.3mm" }}
           dangerouslySetInnerHTML={{
             __html: logoSvg.replace(
               "<svg ",
-              `<svg style="height:11mm;width:auto;display:block" `
+              `<svg style="height:14.3mm;width:auto;display:block" `
             ),
           }}
         />
@@ -158,10 +158,10 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         <img
           src="/mi3-logo-cyan.png"
           alt="mi3"
-          style={{ height: "8mm", width: "auto" }}
+          style={{ height: "10.4mm", width: "auto" }}
         />
         <div
-          className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
+          className="inline-flex px-2.5 py-1.5 font-mono uppercase text-[9.75pt] tracking-[0.22em]"
           style={{ border: `1px solid ${CYAN}`, color: CYAN }}
         >
           ESG DIRECTORS, POLICYMAKERS, AGENCIES, AND RISK MANAGERS
@@ -220,25 +220,25 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       {/* CTA — dual-column partner enclosure */}
       <div
         className="flex flex-col"
-        style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "54mm" }}
+        style={{ border: `1px solid ${CYAN}`, padding: "3.5mm", height: "38mm" }}
       >
         {/* Inner top center text */}
         <div
           className="text-center uppercase font-mono"
-          style={{ color: "#FFFFFF", fontSize: "9pt", letterSpacing: "0.24em", fontWeight: 600 }}
+          style={{ color: "#FFFFFF", fontSize: "6.3pt", letterSpacing: "0.24em", fontWeight: 600 }}
         >
           Meet Our Founders at:
         </div>
 
         {/* Remaining space split into two equal halves by a vertical divider */}
-        <div className="flex flex-1" style={{ marginTop: "4mm" }}>
+        <div className="flex flex-1" style={{ marginTop: "2.8mm" }}>
           {/* Left half — VivaTech */}
-          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
+          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 2.8mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/vivatech-logo.svg?v=6"
               alt="VivaTech"
-              style={{ width: "56mm", maxWidth: "100%", height: "auto" }}
+              style={{ width: "39mm", maxWidth: "100%", height: "auto" }}
             />
           </div>
 
@@ -246,12 +246,12 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           <div aria-hidden style={{ width: "1px", alignSelf: "stretch", background: CYAN }} />
 
           {/* Right half — KPMG */}
-          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 4mm" }}>
+          <div className="flex flex-1 items-center justify-center" style={{ padding: "0 2.8mm" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/kpmg-logo.svg?v=5"
               alt="KPMG"
-              style={{ width: "56mm", maxWidth: "100%", height: "auto" }}
+              style={{ width: "39mm", maxWidth: "100%", height: "auto" }}
             />
           </div>
         </div>
