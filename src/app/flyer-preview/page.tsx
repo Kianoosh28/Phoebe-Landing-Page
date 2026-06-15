@@ -156,9 +156,9 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/mi3-logo-white.png"
+          src="/mi3-logo-cyan.png"
           alt="mi3"
-          style={{ height: "10mm", width: "auto" }}
+          style={{ height: "8mm", width: "auto" }}
         />
         <div
           className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
