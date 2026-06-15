@@ -67,16 +67,16 @@ function ScenarioBox({
 }) {
   return (
     <div
-      className="flex flex-col p-3"
+      className="flex flex-col p-4"
       style={{ border: `1px solid ${accent}`, background: `${accent}0A` }}
     >
       <div
-        className="font-mono font-bold uppercase tracking-[0.1em]"
+        className="text-center font-mono font-bold uppercase tracking-[0.1em]"
         style={{ color: accent, fontSize: "8pt", lineHeight: 1.2 }}
       >
         {title}
       </div>
-      <p className="mt-2 text-white/75" style={{ fontSize: "8pt", lineHeight: 1.4 }}>
+      <p className="mt-3 text-white/75" style={{ fontSize: "9pt", lineHeight: 1.45 }}>
         {body}
       </p>
     </div>
@@ -126,7 +126,7 @@ function QrFrame({ accent, label }: { accent: string; label: string }) {
 function SideA({ logoSvg }: { logoSvg: string }) {
   return (
     <article
-      className="flyer-card relative flex shrink-0 flex-col text-white"
+      className="flyer-card relative flex shrink-0 flex-col justify-between text-white"
       style={{
         width: "210mm",
         height: "210mm",
@@ -164,7 +164,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
 
       {/* Headline */}
       <h1
-        className="mt-5 font-display text-balance"
+        className="font-display text-balance"
         style={{
           fontFamily: "var(--font-schibsted), var(--font-geist-sans), system-ui, sans-serif",
           fontSize: "30pt",
@@ -180,18 +180,18 @@ function SideA({ logoSvg }: { logoSvg: string }) {
 
       {/* Body */}
       <p
-        className="mt-4 text-white/75"
+        className="text-white/75"
         style={{ fontSize: "9pt", lineHeight: 1.45, maxWidth: "120mm" }}
       >
         Surface-level metrics only show you where the world was. Phoebe shows
-        you where it is going. Featured with KPMG at VivaTech 2026, our
-        Collective Intelligence Engine combines merit-weighted AI with
-        cross-disciplinary expert deliberation to map environmental risks,
-        macro climate legislation, and corporate policy outcomes.
+        you where it is going. Our Collective Intelligence + AI-Powered Engine
+        maps out the hidden human friction, supply chain bottlenecks, and
+        behavioral compliance risks of systemic policy shifts months before
+        they unfold.
       </p>
 
       {/* Scenario panels — 3 side-by-side brutalist boxes */}
-      <div className="mt-5 grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <ScenarioBox
           accent={CYAN}
           title="Public Policy & Mobility"
@@ -209,12 +209,9 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         />
       </div>
 
-      {/* Spacer pushes CTA to bottom */}
-      <div className="flex-1" />
-
       {/* CTA — dual-column partner enclosure */}
       <div
-        className="mt-4 flex flex-col"
+        className="flex flex-col"
         style={{ border: `1px solid ${CYAN}`, padding: "5mm", height: "54mm" }}
       >
         {/* Inner top center text */}
@@ -252,13 +249,6 @@ function SideA({ logoSvg }: { logoSvg: string }) {
         </div>
       </div>
 
-      {/* Footer microcopy */}
-      <div
-        className="mt-3 flex items-center justify-between font-mono text-[6pt] tracking-[0.25em] text-white/35"
-      >
-        <span>PHOEBE · SOVEREIGN INTELLIGENCE ENGINE</span>
-        <span>EU · 2026</span>
-      </div>
     </article>
   );
 }
