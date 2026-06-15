@@ -143,7 +143,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
       {/* Logo + target audience box */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center gap-3">
         <div
           className="flex items-center"
           style={{ height: "14.3mm" }}
@@ -161,7 +161,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           style={{ height: "10.4mm", width: "auto" }}
         />
         <div
-          className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
+          className="inline-flex shrink-0 whitespace-nowrap px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
           style={{ border: `1px solid ${CYAN}`, color: CYAN }}
         >
           ESG DIRECTORS, POLICYMAKERS, AGENCIES, RISK MANAGERS
