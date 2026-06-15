@@ -161,7 +161,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           style={{ height: "10.4mm", width: "auto" }}
         />
         <div
-          className="inline-flex px-2.5 py-1.5 font-mono uppercase text-[9.75pt] tracking-[0.22em]"
+          className="inline-flex px-2 py-1 font-mono uppercase text-[7.5pt] tracking-[0.22em]"
           style={{ border: `1px solid ${CYAN}`, color: CYAN }}
         >
           ESG DIRECTORS, POLICYMAKERS, AGENCIES, AND RISK MANAGERS
