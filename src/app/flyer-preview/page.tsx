@@ -174,7 +174,8 @@ function SideA({ logoSvg }: { logoSvg: string }) {
           maxWidth: "160mm",
         }}
       >
-        Stop Guessing the Future.{" "}
+        Stop Guessing the Future.
+        <br />
         <span style={{ color: CYAN }}>Forecast It.</span>
       </h1>
 
