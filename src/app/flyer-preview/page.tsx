@@ -130,24 +130,30 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       style={{
         width: "210mm",
         height: "210mm",
-        backgroundImage:
-          "linear-gradient(rgba(5,5,5,0.5), rgba(5,5,5,0.5)), url('/Exemple.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: "#050505",
         padding: "12mm",
         fontFamily: "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
         boxShadow: "0 30px 80px -40px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(255,255,255,0.04)",
       }}
     >
+      {/* Full-bleed brand background — untouched gradient wave */}
+      <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/Exemple.png"
+          alt=""
+          style={{ width: "100%", height: "100%", objectFit: "fill", display: "block" }}
+        />
+      </div>
+
       {/* corner ticks */}
-      <span aria-hidden className="absolute" style={{ top: "6mm", left: "6mm", width: 14, height: 14, borderTop: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
-      <span aria-hidden className="absolute" style={{ top: "6mm", right: "6mm", width: 14, height: 14, borderTop: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
-      <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
-      <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
+      <span aria-hidden className="absolute z-10" style={{ top: "6mm", left: "6mm", width: 14, height: 14, borderTop: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
+      <span aria-hidden className="absolute z-10" style={{ top: "6mm", right: "6mm", width: 14, height: 14, borderTop: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
+      <span aria-hidden className="absolute z-10" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderLeft: `1px solid ${CYAN}` }} />
+      <span aria-hidden className="absolute z-10" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${CYAN}`, borderRight: `1px solid ${CYAN}` }} />
 
       {/* Logo + target audience box */}
-      <div className="flex items-center gap-3">
+      <div className="relative z-10 flex items-center gap-3">
         <div
           className="flex items-center"
           style={{ height: "14.3mm" }}
@@ -173,7 +179,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       </div>
 
       {/* Headline + intro — one section */}
-      <div>
+      <div className="relative z-10">
         <h1
           className="font-display text-balance"
           style={{
@@ -203,7 +209,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       </div>
 
       {/* Scenario panels — 3 side-by-side brutalist boxes */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="relative z-10 grid grid-cols-3 gap-4">
         <ScenarioBox
           accent={CYAN}
           title="Public Policy & Mobility"
@@ -223,7 +229,7 @@ function SideA({ logoSvg }: { logoSvg: string }) {
 
       {/* CTA — dual-column partner enclosure */}
       <div
-        className="flex flex-col"
+        className="relative z-10 flex flex-col"
         style={{ border: `1px solid ${CYAN}`, padding: "3.5mm", height: "38mm" }}
       >
         {/* Inner top center text */}
@@ -279,10 +285,10 @@ function SideB({ logoSvg }: { logoSvg: string }) {
       }}
     >
       {/* corner ticks */}
-      <span aria-hidden className="absolute" style={{ top: "6mm", left: "6mm", width: 14, height: 14, borderTop: `1px solid ${AMETHYST}`, borderLeft: `1px solid ${AMETHYST}` }} />
-      <span aria-hidden className="absolute" style={{ top: "6mm", right: "6mm", width: 14, height: 14, borderTop: `1px solid ${AMETHYST}`, borderRight: `1px solid ${AMETHYST}` }} />
-      <span aria-hidden className="absolute" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${AMETHYST}`, borderLeft: `1px solid ${AMETHYST}` }} />
-      <span aria-hidden className="absolute" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${AMETHYST}`, borderRight: `1px solid ${AMETHYST}` }} />
+      <span aria-hidden className="absolute z-10" style={{ top: "6mm", left: "6mm", width: 14, height: 14, borderTop: `1px solid ${AMETHYST}`, borderLeft: `1px solid ${AMETHYST}` }} />
+      <span aria-hidden className="absolute z-10" style={{ top: "6mm", right: "6mm", width: 14, height: 14, borderTop: `1px solid ${AMETHYST}`, borderRight: `1px solid ${AMETHYST}` }} />
+      <span aria-hidden className="absolute z-10" style={{ bottom: "6mm", left: "6mm", width: 14, height: 14, borderBottom: `1px solid ${AMETHYST}`, borderLeft: `1px solid ${AMETHYST}` }} />
+      <span aria-hidden className="absolute z-10" style={{ bottom: "6mm", right: "6mm", width: 14, height: 14, borderBottom: `1px solid ${AMETHYST}`, borderRight: `1px solid ${AMETHYST}` }} />
 
       {/* Logo */}
       <div className="flex items-center justify-between">
@@ -507,16 +513,7 @@ export default async function FlyerPreviewPage() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: PRINT_CSS }} />
-      <div
-        id="flyer-print-root"
-        className="min-h-screen py-10"
-        style={{
-          backgroundImage: "url('/Exemple.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <div id="flyer-print-root" className="min-h-screen bg-[#050505] py-10">
         <header className="flyer-screen-chrome mx-auto mb-8 flex max-w-[1700px] items-end justify-between px-6">
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] text-cyan/80">
