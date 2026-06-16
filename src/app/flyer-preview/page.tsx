@@ -130,7 +130,11 @@ function SideA({ logoSvg }: { logoSvg: string }) {
       style={{
         width: "210mm",
         height: "210mm",
-        background: "#050505",
+        backgroundImage:
+          "linear-gradient(rgba(5,5,5,0.5), rgba(5,5,5,0.5)), url('/Exemple.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         padding: "12mm",
         fontFamily: "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
         boxShadow: "0 30px 80px -40px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(255,255,255,0.04)",
@@ -503,7 +507,16 @@ export default async function FlyerPreviewPage() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: PRINT_CSS }} />
-      <div id="flyer-print-root" className="min-h-screen bg-[#050505] py-10">
+      <div
+        id="flyer-print-root"
+        className="min-h-screen py-10"
+        style={{
+          backgroundImage: "url('/Exemple.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <header className="flyer-screen-chrome mx-auto mb-8 flex max-w-[1700px] items-end justify-between px-6">
           <div>
             <div className="font-mono text-[10px] tracking-[0.3em] text-cyan/80">
