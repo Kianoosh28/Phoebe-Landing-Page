@@ -15,11 +15,11 @@ import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { cn } from "@/lib/utils";
 
 /*
- * Amethyst-themed clone of the main page's PilotModal
+ * Cyan-themed clone of the main page's PilotModal
  * (src/components/pilot-modal.tsx). Identical submission flow:
  * Cloudflare Turnstile + POST to the same Formspree pilot endpoint, with the
  * same idle/submitting/success/error state machine. Recolored to the impact
- * subdomain's amethyst palette and given enterprise-context fields.
+ * subdomain's electric-cyan palette and given enterprise-context fields.
  */
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
@@ -92,7 +92,7 @@ function ImpactPilotModal() {
     const form = e.currentTarget;
     const data = new FormData(form);
     data.set("cf-turnstile-response", turnstileToken);
-    data.set("_subject", "Impact — Private Engine Access Request");
+    data.set("_subject", "Impact - Private Engine Access Request");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
@@ -143,7 +143,7 @@ function ImpactPilotModal() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="impact-pilot-title"
-            className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto border border-[#9966CC]/40 bg-zinc-950 p-6 font-sans shadow-[0_0_0_1px_rgba(153,102,204,0.25),0_30px_120px_-20px_rgba(153,102,204,0.5)] sm:p-8"
+            className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto border border-[#00F0FF]/40 bg-zinc-950 p-6 font-sans shadow-[0_0_0_1px_rgba(0,240,255,0.25),0_30px_120px_-20px_rgba(0,240,255,0.5)] sm:p-8"
             initial={{ opacity: 0, scale: 0.92, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 4 }}
@@ -163,8 +163,8 @@ function ImpactPilotModal() {
             ) : (
               <>
                 <div className="mb-6">
-                  <div className="mb-4 inline-flex items-center gap-2 border border-[#9966CC]/40 bg-[#9966CC]/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#B692DB]">
-                    <span className="h-1 w-1 rounded-full bg-[#9966CC]" />
+                  <div className="mb-4 inline-flex items-center gap-2 border border-[#00F0FF]/40 bg-[#00F0FF]/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-[#5CF6FF]">
+                    <span className="h-1 w-1 rounded-full bg-[#00F0FF]" />
                     Private Engine Access
                   </div>
                   <h2
@@ -192,7 +192,7 @@ function ImpactPilotModal() {
                     name="sector"
                     type="text"
                     required
-                    placeholder="Public Policy · Health · Climate"
+                    placeholder="Public Policy / Health / Climate"
                   />
                   <Field
                     label="Full Name & Position"
@@ -200,7 +200,7 @@ function ImpactPilotModal() {
                     type="text"
                     required
                     autoComplete="name"
-                    placeholder="Jane Doe — Director of Risk"
+                    placeholder="Jane Doe, Director of Risk"
                   />
                   <Field
                     label="Corporate Email"
@@ -240,20 +240,20 @@ function ImpactPilotModal() {
                     type="submit"
                     disabled={status === "submitting" || !turnstileToken}
                     className={cn(
-                      "group relative inline-flex h-12 w-full items-center justify-center gap-2 bg-[#9966CC] px-6 font-mono text-[14px] font-bold tracking-[0.12em] text-black",
+                      "group relative inline-flex h-12 w-full items-center justify-center gap-2 bg-[#00F0FF] px-6 font-mono text-[14px] font-bold tracking-[0.12em] text-black",
                       "transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60",
-                      "shadow-[0_0_0_1px_rgba(153,102,204,0.4),0_10px_40px_-10px_rgba(153,102,204,0.55)]",
-                      "hover:shadow-[0_0_0_1px_rgba(182,146,219,0.65),0_0_60px_-5px_rgba(153,102,204,0.85)]",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9966CC]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
+                      "shadow-[0_0_0_1px_rgba(0,240,255,0.4),0_10px_40px_-10px_rgba(0,240,255,0.55)]",
+                      "hover:shadow-[0_0_0_1px_rgba(92,246,255,0.65),0_0_60px_-5px_rgba(0,240,255,0.85)]",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F0FF]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
                     )}
                   >
                     {status === "submitting"
-                      ? "SUBMITTING…"
+                      ? "SUBMITTING..."
                       : "REQUEST PRIVATE ENGINE ACCESS"}
                   </button>
 
                   <p className="text-center font-mono text-[11px] uppercase tracking-[0.16em] text-zinc-600">
-                    NDA on request · 4-week turnaround
+                    NDA on request &middot; 4-week turnaround
                   </p>
                 </form>
               </>
@@ -292,10 +292,10 @@ function Field({
         autoComplete={autoComplete}
         placeholder={placeholder}
         className={cn(
-          "block h-11 w-full border border-[#9966CC]/30 bg-black px-3.5 text-[14px] text-white placeholder:text-zinc-600",
+          "block h-11 w-full border border-[#00F0FF]/30 bg-black px-3.5 text-[14px] text-white placeholder:text-zinc-600",
           "transition-all duration-200",
-          "hover:border-[#9966CC]/55",
-          "focus:border-[#9966CC] focus:outline-none focus:ring-2 focus:ring-[#9966CC]/30",
+          "hover:border-[#00F0FF]/55",
+          "focus:border-[#00F0FF] focus:outline-none focus:ring-2 focus:ring-[#00F0FF]/30",
         )}
       />
     </label>
@@ -310,7 +310,7 @@ function SuccessPanel({ onClose }: { onClose: () => void }) {
       transition={{ duration: 0.3 }}
       className="py-4 text-center"
     >
-      <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#9966CC]/40 bg-[#9966CC]/10 text-[#B692DB] shadow-[0_0_40px_-5px_rgba(153,102,204,0.6)]">
+      <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full border border-[#00F0FF]/40 bg-[#00F0FF]/10 text-[#5CF6FF] shadow-[0_0_40px_-5px_rgba(0,240,255,0.6)]">
         <Check size={26} strokeWidth={2.4} />
       </div>
       <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] text-white">
@@ -323,7 +323,7 @@ function SuccessPanel({ onClose }: { onClose: () => void }) {
       <button
         type="button"
         onClick={onClose}
-        className="mt-7 border border-[#9966CC]/50 px-6 py-2.5 font-mono text-sm tracking-[0.12em] text-[#B692DB] transition-colors hover:bg-[#9966CC]/10"
+        className="mt-7 border border-[#00F0FF]/50 px-6 py-2.5 font-mono text-sm tracking-[0.12em] text-[#5CF6FF] transition-colors hover:bg-[#00F0FF]/10"
       >
         CLOSE
       </button>

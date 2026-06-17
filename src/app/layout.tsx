@@ -59,7 +59,9 @@ export default function RootLayout({
             <HideOn prefix="/impact">
               <NeuralFog />
             </HideOn>
-            <Nav />
+            <HideOn prefix="/impact">
+              <Nav />
+            </HideOn>
             <main className="relative z-10 flex-1">{children}</main>
             <Footer />
           </WaitlistModalProvider>
