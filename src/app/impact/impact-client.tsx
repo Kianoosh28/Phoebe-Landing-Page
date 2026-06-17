@@ -127,6 +127,17 @@ function IndicatorMatrix({ rows = 4, cols = 9 }: { rows?: number; cols?: number 
   );
 }
 
+/* Section eyebrow label with technical rule. */
+function SectionLabel({ left, right }: { left: string; right?: string }) {
+  return (
+    <div className="mb-8 flex items-center gap-3 font-mono text-xs tracking-[0.26em] text-zinc-500">
+      <span style={{ color: A }}>//</span> {left}
+      <span className="h-px flex-1 bg-zinc-800" />
+      {right && <span>{right}</span>}
+    </div>
+  );
+}
+
 function Panel({ s, index }: { s: (typeof SCENARIOS)[number]; index: number }) {
   return (
     <motion.article
@@ -134,7 +145,7 @@ function Panel({ s, index }: { s: (typeof SCENARIOS)[number]; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="relative flex flex-col overflow-hidden border border-zinc-800 bg-zinc-900/50"
+      className="relative flex flex-col overflow-hidden border border-zinc-800 bg-black/40"
     >
       {/* 2px amethyst top accent */}
       <span aria-hidden className="absolute inset-x-0 top-0 h-[2px]" style={{ backgroundColor: A }} />
@@ -183,7 +194,7 @@ function DashboardInner() {
   const { open: openPilot } = useImpactPilot();
 
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-black text-zinc-100 font-sans">
+    <div className="font-sans text-zinc-100">
       {/* Scoped technical animations */}
       <style>{`
         @keyframes impactBlink { 0%,100%{opacity:1} 50%{opacity:.35} }
@@ -194,42 +205,26 @@ function DashboardInner() {
         .impact-cta:hover { box-shadow: 0 0 0 1px ${AG}, 0 0 26px -4px ${A}; opacity: .95; }
       `}</style>
 
-      {/* Backdrop */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 grid-bg opacity-50" />
-        <div
-          className="absolute left-1/2 top-0 h-[460px] w-[760px] -translate-x-1/2 rounded-full blur-3xl"
-          style={{ background: `radial-gradient(ellipse at center, ${A}26, transparent 70%)` }}
-        />
-      </div>
+      {/* HERO INTEL BLOCK — deep obsidian */}
+      <section className="relative overflow-hidden bg-[#050505] pt-32 pb-16 sm:pt-40 sm:pb-20">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute inset-0 grid-bg opacity-50" />
+          <div
+            className="absolute left-1/2 top-0 h-[460px] w-[760px] -translate-x-1/2 rounded-full blur-3xl"
+            style={{ background: `radial-gradient(ellipse at center, ${A}26, transparent 70%)` }}
+          />
+        </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
-        {/* 2 · COMMAND HEADER & DIAGNOSTICS */}
-        <header className="flex flex-col gap-3 border-b border-zinc-800 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] text-zinc-400">
-            <span className="h-1.5 w-1.5 rounded-full impact-blink" style={{ backgroundColor: A, boxShadow: `0 0 8px ${A}` }} />
-            PHOEBE // IMPACT SIMULATION CORE
-            <span className="hidden h-3 w-px bg-zinc-700 sm:inline-block" />
-            <SystemClock />
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="hidden items-center gap-2 sm:flex">
-              <span className="font-mono text-[9px] tracking-[0.18em] text-zinc-600">MEM</span>
-              <MemoryChart />
-            </div>
-            <span
-              className="inline-flex items-center gap-2 border px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-zinc-200"
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div
+              className="mb-6 inline-flex items-center gap-2 border px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] text-zinc-200"
               style={{ borderColor: `${A}66` }}
             >
               <span className="h-1.5 w-1.5 rounded-full impact-blink" style={{ backgroundColor: AG, boxShadow: `0 0 8px ${AG}` }} />
               CORE LENS: ACTIVE
-            </span>
-          </div>
-        </header>
+            </div>
 
-        {/* 3 · HERO INTEL BLOCK */}
-        <section className="grid grid-cols-1 items-center gap-12 border-b border-zinc-800 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 sm:py-28">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="font-mono text-xs tracking-[0.32em]" style={{ color: A }}>
               [ SYSTEMIC RISK FORESIGHT CORE // DEPLOYED ]
             </p>
@@ -242,6 +237,7 @@ function DashboardInner() {
                 Forecast it.
               </span>
             </h1>
+
             <div className="mt-7 max-w-2xl space-y-4 text-[16.5px] leading-[1.6] text-zinc-400 sm:text-lg">
               <p>
                 Legacy models struggle when the rules change. Standard AI is
@@ -281,7 +277,6 @@ function DashboardInner() {
             style={{ boxShadow: `0 0 0 1px ${A}22, 0 30px 80px -40px ${A}` }}
           >
             <span aria-hidden className="absolute inset-x-0 top-0 h-[2px]" style={{ backgroundColor: A }} />
-            {/* scan line */}
             <span
               aria-hidden
               className="impact-scan pointer-events-none absolute inset-x-0 top-0 h-12 opacity-30"
@@ -289,7 +284,7 @@ function DashboardInner() {
             />
             <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2.5 font-mono text-[10px] tracking-[0.18em] text-zinc-500">
               <span style={{ color: AG }}>FORESIGHT_STREAM.live</span>
-              <span>PID 0xF0E8E</span>
+              <SystemClock />
             </div>
             <div className="space-y-3 p-4">
               <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.14em] text-zinc-500">
@@ -306,29 +301,26 @@ function DashboardInner() {
               <HexStream cols={26} intervalMs={170} />
             </div>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        {/* 4 · FORWARD SCENARIOS SIMULATOR */}
-        <section className="py-16 sm:py-20">
-          <div className="mb-8 flex items-center gap-3 font-mono text-xs tracking-[0.26em] text-zinc-500">
-            <span style={{ color: A }}>//</span> FORWARD SCENARIOS SIMULATOR
-            <span className="h-px flex-1 bg-zinc-800" />
-            <span>03 MODULES ONLINE</span>
-          </div>
+      {/* FORWARD SCENARIOS SIMULATOR — lighter slate */}
+      <section className="relative bg-[#16161E] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <SectionLabel left="FORWARD SCENARIOS SIMULATOR" right="03 MODULES ONLINE" />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {SCENARIOS.map((s, i) => (
               <Panel key={s.id} s={s} index={i} />
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 5 · DATA CONTRAST ENGINE */}
-        <section className="py-16 sm:py-20">
-          <div className="mb-8 flex items-center gap-3 font-mono text-xs tracking-[0.26em] text-zinc-500">
-            <span style={{ color: A }}>//</span> DATA CONTRAST ENGINE
-            <span className="h-px flex-1 bg-zinc-800" />
-          </div>
-          <div className="relative overflow-hidden border border-zinc-800 bg-zinc-900/50">
+      {/* DATA CONTRAST ENGINE — deep obsidian */}
+      <section className="relative bg-[#050505] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <SectionLabel left="DATA CONTRAST ENGINE" />
+          <div className="relative overflow-hidden border border-zinc-800 bg-black/40">
             <div aria-hidden className="absolute inset-0 grid-bg opacity-40" />
             <div className="relative grid grid-cols-1 divide-y divide-zinc-800 md:grid-cols-2 md:divide-x md:divide-y-0">
               <div className="p-6 sm:p-8">
@@ -357,53 +349,31 @@ function DashboardInner() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 6 · SYSTEM ENGAGEMENT FOOTER */}
-        <section className="border-t border-zinc-800 py-20 text-center">
+      {/* SYSTEM ENGAGEMENT — lighter slate */}
+      <section className="relative bg-[#16161E] py-20">
+        <div className="mx-auto max-w-7xl px-5 text-center sm:px-8">
           <div className="font-mono text-[11px] tracking-[0.28em]" style={{ color: A }}>
             INITIALIZE PRIVATE ENTERPRISE PILOT // ENTER CREDENTIALS
           </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              openPilot();
-            }}
-            className="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
-          >
-            <div className="flex flex-1 items-center border border-zinc-800 bg-black px-3 font-mono focus-within:border-[#9966CC]">
-              <span className="mr-2 select-none text-sm" style={{ color: A }}>
-                &gt;
-              </span>
-              <input
-                type="email"
-                placeholder="operator@organization.gov"
-                aria-label="Work email"
-                className="w-full bg-transparent py-3 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none"
-              />
-            </div>
+          <p className="mx-auto mt-4 max-w-xl text-sm text-zinc-500">
+            Request access to the engine. Deploy a private forecasting pilot
+            scoped to your sector.
+          </p>
+          <div className="mt-8">
             <button
-              type="submit"
-              className="impact-cta px-6 py-3 font-mono text-sm font-bold tracking-[0.14em] text-black"
+              type="button"
+              onClick={openPilot}
+              className="impact-cta inline-flex items-center px-7 py-3.5 font-mono text-sm font-bold tracking-[0.14em] text-black"
               style={{ backgroundColor: A }}
             >
               ENGAGE SIMULATOR CORE
             </button>
-          </form>
-        </section>
-
-        {/* Bottom telemetry row */}
-        <footer className="flex flex-col items-center justify-between gap-3 border-t border-zinc-800 py-6 font-mono text-xs text-zinc-600 sm:flex-row">
-          <span>&copy; 2026 PHOEBE // ALL RIGHTS RESERVED</span>
-          <a
-            href="https://impact.phoebeapp.io"
-            className="tracking-[0.22em] text-zinc-400 transition-colors hover:text-[#9966CC]"
-          >
-            impact.phoebeapp.io
-          </a>
-        </footer>
-      </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
