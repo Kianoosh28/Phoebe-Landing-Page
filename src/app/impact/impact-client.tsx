@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { ImpactPilotProvider, useImpactPilot } from "./impact-pilot";
 
 /* Amethyst technical palette — this subdomain's distinct flavor. */
 const A = "#9966CC";
@@ -171,8 +172,15 @@ function Panel({ s, index }: { s: (typeof SCENARIOS)[number]; index: number }) {
 }
 
 export function ImpactDashboard() {
-  const [submitted, setSubmitted] = useState(false);
-  const [heroSubmitted, setHeroSubmitted] = useState(false);
+  return (
+    <ImpactPilotProvider>
+      <DashboardInner />
+    </ImpactPilotProvider>
+  );
+}
+
+function DashboardInner() {
+  const { open: openPilot } = useImpactPilot();
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-black text-zinc-100 font-sans">
@@ -251,11 +259,11 @@ export function ImpactDashboard() {
               </p>
             </div>
 
-            {/* Terminal pilot CTA */}
+            {/* Terminal pilot CTA — opens the private engine access form */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                setHeroSubmitted(true);
+                openPilot();
               }}
               className="mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
             >
@@ -265,7 +273,6 @@ export function ImpactDashboard() {
                 </span>
                 <input
                   type="email"
-                  required
                   placeholder="Enter Corporate Email Address..."
                   aria-label="Corporate email address"
                   className="w-full bg-transparent py-3 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none"
@@ -279,12 +286,6 @@ export function ImpactDashboard() {
                 REQUEST PRIVATE ENGINE ACCESS
               </button>
             </form>
-            <div
-              className="mt-3 h-4 font-mono text-[11px] tracking-[0.16em]"
-              style={{ color: AG }}
-            >
-              {heroSubmitted ? "ACCESS REQUEST QUEUED // STANDBY FOR HANDSHAKE" : ""}
-            </div>
           </motion.div>
 
           {/* Live diagnostic console */}
@@ -383,7 +384,7 @@ export function ImpactDashboard() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setSubmitted(true);
+              openPilot();
             }}
             className="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
           >
@@ -393,7 +394,6 @@ export function ImpactDashboard() {
               </span>
               <input
                 type="email"
-                required
                 placeholder="operator@organization.gov"
                 aria-label="Work email"
                 className="w-full bg-transparent py-3 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none"
@@ -407,10 +407,6 @@ export function ImpactDashboard() {
               ENGAGE SIMULATOR CORE
             </button>
           </form>
-
-          <div className="mt-4 h-4 font-mono text-[11px] tracking-[0.16em]" style={{ color: AG }}>
-            {submitted ? "ACCESS REQUEST QUEUED // STANDBY FOR HANDSHAKE" : ""}
-          </div>
         </section>
 
         {/* Bottom telemetry row */}
