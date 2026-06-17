@@ -172,6 +172,7 @@ function Panel({ s, index }: { s: (typeof SCENARIOS)[number]; index: number }) {
 
 export function ImpactDashboard() {
   const [submitted, setSubmitted] = useState(false);
+  const [heroSubmitted, setHeroSubmitted] = useState(false);
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-black text-zinc-100 font-sans">
@@ -181,6 +182,8 @@ export function ImpactDashboard() {
         .impact-blink { animation: impactBlink 1.8s ease-in-out infinite; }
         @keyframes impactScan { 0%{transform:translateY(-100%)} 100%{transform:translateY(900%)} }
         .impact-scan { animation: impactScan 3.4s linear infinite; }
+        .impact-cta { transition: box-shadow .2s ease, opacity .2s ease; }
+        .impact-cta:hover { box-shadow: 0 0 0 1px ${AG}, 0 0 26px -4px ${A}; opacity: .95; }
       `}</style>
 
       {/* Backdrop */}
@@ -231,19 +234,57 @@ export function ImpactDashboard() {
                 Forecast it.
               </span>
             </h1>
-            <p className="mt-7 max-w-2xl text-[16.5px] leading-[1.6] text-zinc-400 sm:text-lg">
-              Legacy risk models miscalculate systemic transitions because they
-              rely on backward-looking data training loops. Standard AI trained
-              purely on past records fails when structural rules change. At the
-              same time, traditional market research and conventional opinion
-              polling are fundamentally broken&mdash;crippled by social
-              desirability bias and participant &ldquo;satisficing,&rdquo; where
-              fatigued respondents select random shortcuts just to bypass
-              surveys. Phoebe bypasses traditional bottlenecks by fusing
-              adaptive-weighted machine precision with deep human collective
-              intelligence to map out behavioral friction long before crisis
-              events unfold.
-            </p>
+            <div className="mt-7 max-w-2xl space-y-4 text-[16.5px] leading-[1.6] text-zinc-400 sm:text-lg">
+              <p>
+                Legacy risk models fail during systemic transitions because they
+                rely on backward-looking data training loops. Standard AI breaks
+                when structural rules change, while traditional surveys are
+                sabotaged by social desirability bias and
+                &ldquo;satisficing&rdquo;&mdash;where fatigued respondents click
+                random shortcuts just to finish.
+              </p>
+              <p>
+                Phoebe bypasses these data bottlenecks. By fusing
+                adaptive-weighted machine intelligence with deep human collective
+                deliberation, we filter out noise and map out real-world
+                behavioral friction before crisis events unfold.
+              </p>
+            </div>
+
+            {/* Terminal pilot CTA */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setHeroSubmitted(true);
+              }}
+              className="mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
+            >
+              <div className="flex flex-1 items-center border border-zinc-800 bg-black px-3 font-mono focus-within:border-[#9966CC]">
+                <span className="mr-2 select-none text-sm" style={{ color: A }}>
+                  &gt;
+                </span>
+                <input
+                  type="email"
+                  required
+                  placeholder="Enter Corporate Email Address..."
+                  aria-label="Corporate email address"
+                  className="w-full bg-transparent py-3 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="impact-cta border border-transparent px-6 py-3 font-mono text-sm font-bold tracking-[0.12em] text-black"
+                style={{ backgroundColor: A }}
+              >
+                REQUEST PRIVATE ENGINE ACCESS
+              </button>
+            </form>
+            <div
+              className="mt-3 h-4 font-mono text-[11px] tracking-[0.16em]"
+              style={{ color: AG }}
+            >
+              {heroSubmitted ? "ACCESS REQUEST QUEUED // STANDBY FOR HANDSHAKE" : ""}
+            </div>
           </motion.div>
 
           {/* Live diagnostic console */}
@@ -360,7 +401,7 @@ export function ImpactDashboard() {
             </div>
             <button
               type="submit"
-              className="px-6 py-3 font-mono text-sm font-bold tracking-[0.14em] text-black transition-opacity hover:opacity-90"
+              className="impact-cta px-6 py-3 font-mono text-sm font-bold tracking-[0.14em] text-black"
               style={{ backgroundColor: A }}
             >
               ENGAGE SIMULATOR CORE
