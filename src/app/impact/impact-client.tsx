@@ -244,18 +244,18 @@ function DashboardInner() {
             </h1>
             <div className="mt-7 max-w-2xl space-y-4 text-[16.5px] leading-[1.6] text-zinc-400 sm:text-lg">
               <p>
-                Legacy risk models fail during systemic transitions because they
-                rely on backward-looking data training loops. Standard AI breaks
-                when structural rules change, while traditional surveys are
-                sabotaged by social desirability bias and
-                &ldquo;satisficing&rdquo;&mdash;where fatigued respondents click
-                random shortcuts just to finish.
+                Legacy models struggle when the rules change. Standard AI is
+                limited by backward-looking training data, while traditional
+                surveys are distorted by social desirability bias and
+                satisficing, when respondents rush to finish instead of
+                answering thoughtfully.
               </p>
               <p>
-                Phoebe bypasses these data bottlenecks. By fusing
-                adaptive-weighted machine intelligence with deep human collective
-                deliberation, we filter out noise and map out real-world
-                behavioral friction before crisis events unfold.
+                Phoebe helps ESG directors, policymakers, and risk managers
+                filter out noise and map out real-world behavioral frictions. By
+                combining adaptive AI weighting with human probabilistic
+                judgment, it supports better decisions where social impact
+                matters most.
               </p>
             </div>
 
