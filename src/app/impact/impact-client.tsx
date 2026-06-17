@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ImpactPilotProvider, useImpactPilot } from "./impact-pilot";
+import { Moat } from "@/components/sections/moat";
+import { Science } from "@/components/sections/science";
+import { Team } from "@/components/sections/team";
 
 /* Amethyst technical palette — this subdomain's distinct flavor. */
 const A = "#9966CC";
@@ -316,8 +319,11 @@ function DashboardInner() {
         </div>
       </section>
 
-      {/* DATA CONTRAST ENGINE — deep obsidian */}
-      <section className="relative bg-[#050505] py-16 sm:py-20">
+      {/* THE METHODOLOGICAL MOAT — reused from the main landing page */}
+      <Moat />
+
+      {/* DATA CONTRAST ENGINE — lighter slate */}
+      <section className="relative bg-[#16161E] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionLabel left="DATA CONTRAST ENGINE" />
           <div className="relative overflow-hidden border border-zinc-800 bg-black/40">
@@ -352,8 +358,14 @@ function DashboardInner() {
         </div>
       </section>
 
-      {/* SYSTEM ENGAGEMENT — lighter slate */}
-      <section className="relative bg-[#16161E] py-20">
+      {/* THE SCIENCE BEHIND PHOEBE — reused from the main landing page */}
+      <Science />
+
+      {/* THE FOUNDERS' MOAT — reused from the main landing page */}
+      <Team />
+
+      {/* SYSTEM ENGAGEMENT — deep obsidian */}
+      <section className="relative bg-[#050505] py-20">
         <div className="mx-auto max-w-7xl px-5 text-center sm:px-8">
           <div className="font-mono text-[11px] tracking-[0.28em]" style={{ color: A }}>
             INITIALIZE PRIVATE ENTERPRISE PILOT // ENTER CREDENTIALS
