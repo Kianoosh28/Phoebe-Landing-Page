@@ -259,33 +259,17 @@ function DashboardInner() {
               </p>
             </div>
 
-            {/* Terminal pilot CTA — opens the private engine access form */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                openPilot();
-              }}
-              className="mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
-            >
-              <div className="flex flex-1 items-center border border-zinc-800 bg-black px-3 font-mono focus-within:border-[#9966CC]">
-                <span className="mr-2 select-none text-sm" style={{ color: A }}>
-                  &gt;
-                </span>
-                <input
-                  type="email"
-                  placeholder="Enter Corporate Email Address..."
-                  aria-label="Corporate email address"
-                  className="w-full bg-transparent py-3 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none"
-                />
-              </div>
+            {/* Pilot CTA — opens the private engine access form */}
+            <div className="mt-8">
               <button
-                type="submit"
-                className="impact-cta border border-transparent px-6 py-3 font-mono text-sm font-bold tracking-[0.12em] text-black"
+                type="button"
+                onClick={openPilot}
+                className="impact-cta inline-flex items-center border border-transparent px-7 py-3.5 font-mono text-sm font-bold tracking-[0.12em] text-black"
                 style={{ backgroundColor: A }}
               >
                 REQUEST PRIVATE ENGINE ACCESS
               </button>
-            </form>
+            </div>
           </motion.div>
 
           {/* Live diagnostic console */}
