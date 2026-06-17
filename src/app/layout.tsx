@@ -6,6 +6,7 @@ import { Footer } from "@/components/sections/footer";
 import { NeuralFog } from "@/components/dynamic/neural-fog";
 import { PilotModalProvider } from "@/components/pilot-modal";
 import { WaitlistModalProvider } from "@/components/waitlist-modal";
+import { HideOn } from "@/components/route-gate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,10 +56,16 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-obsidian text-foreground selection:bg-cyan/30 overflow-x-clip">
         <PilotModalProvider>
           <WaitlistModalProvider>
-            <NeuralFog />
-            <Nav />
+            <HideOn prefix="/impact">
+              <NeuralFog />
+            </HideOn>
+            <HideOn prefix="/impact">
+              <Nav />
+            </HideOn>
             <main className="relative z-10 flex-1">{children}</main>
-            <Footer />
+            <HideOn prefix="/impact">
+              <Footer />
+            </HideOn>
           </WaitlistModalProvider>
         </PilotModalProvider>
       </body>
