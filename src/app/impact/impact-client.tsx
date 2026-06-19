@@ -24,21 +24,21 @@ const MG = "#B692DB";
 const SCENARIOS = [
   {
     id: "MODULE_01",
-    title: "Public Policy & Mobility",
+    title: "Crit'Air 3",
     radar: "SIMULATED: REGIONAL EMISSION CAPS // FREQUENCY: REALTIME",
     intel:
       "Simulating actual commuter compliance thresholds, retail economic impacts, public pushback vectors, and behavioral friction on urban mobility and environmental restriction policies months before final votes land.",
   },
   {
     id: "MODULE_02",
-    title: "Health & Infrastructure",
+    title: "MaPrimeAdapt’",
     radar: "SIMULATED: RE-ALIGNMENT FRICTION // FREQUENCY: REALTIME",
     intel:
       "Quantifying healthcare capability shortfalls, hidden psychological friction points, and artisan supply-chain bottlenecks inside social housing, senior care, and multi-generational public infrastructure initiatives.",
   },
   {
     id: "MODULE_03",
-    title: "Climate & Resource Risk",
+    title: "PNACC 3",
     radar: "SIMULATED: AGRARIAN SHIFTS // FREQUENCY: REALTIME",
     intel:
       "Forecasting agrarian land-use shifts, critical industrial supply-chain constraints, and complex legal or civil escalation risks surrounding regional environmental resource caps and legislative transitions.",
@@ -229,6 +229,18 @@ function IndicatorMatrix({ rows = 4, cols = 9 }: { rows?: number; cols?: number 
   );
 }
 
+/* Inline gradient text — electric cyan → deep amethyst. */
+function Grad({ children }: { children: React.ReactNode }) {
+  return (
+    <span
+      className="bg-clip-text text-transparent"
+      style={{ backgroundImage: `linear-gradient(135deg, ${A}, ${M})` }}
+    >
+      {children}
+    </span>
+  );
+}
+
 /* Consistent section header used across every block. */
 function SectionHead({
   eyebrow,
@@ -237,7 +249,7 @@ function SectionHead({
   right,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   sub?: string;
   right?: string;
 }) {
@@ -487,7 +499,7 @@ function DashboardInner() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHead
             eyebrow="FORWARD SCENARIOS SIMULATOR"
-            title="Three live foresight modules."
+            title={<>Three live <Grad>foresight</Grad> experiments</>}
             sub="Each module continuously simulates the behavioral and structural variables that legacy models miss."
             right="03 MODULES ONLINE"
           />
@@ -504,7 +516,7 @@ function DashboardInner() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHead
             eyebrow="THE METHODOLOGICAL MOAT"
-            title="Why Phoebe beats prediction markets, by design."
+            title={<>Why Phoebe beats other solutions, <Grad>by design</Grad>.</>}
             sub="Markets ask the crowd binary questions. Phoebe asks how sure they are, and weights every voice by earned merit."
           />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -528,7 +540,10 @@ function DashboardInner() {
       {/* DATA CONTRAST ENGINE — lighter slate */}
       <section className="relative bg-[#16161E] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHead eyebrow="DATA CONTRAST ENGINE" title="Backward-looking vs. forward-mapping." />
+          <SectionHead
+            eyebrow="DATA CONTRAST ENGINE"
+            title={<>Backward-looking vs. <Grad>forward-mapping</Grad>.</>}
+          />
           <Card className="overflow-hidden">
             <div aria-hidden className="absolute inset-0 grid-bg opacity-40" />
             <div className="relative grid grid-cols-1 divide-y divide-zinc-800 md:grid-cols-2 md:divide-x md:divide-y-0">
@@ -566,7 +581,7 @@ function DashboardInner() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHead
             eyebrow="THE SCIENCE BEHIND PHOEBE"
-            title="The Neuro-Edge: cognitive AI architecture."
+            title={<>The Neuro-Edge: <Grad>cognitive AI architecture</Grad>.</>}
             sub="A human-in-the-loop design built on peer-reviewed cognitive science. Structured deliberation neutralises the bandwagon effect; merit-weighted aggregation compounds the signal of small, expert debates over noisy crowds."
           />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -621,7 +636,10 @@ function DashboardInner() {
       {/* THE FOUNDERS' MOAT — lighter slate */}
       <section className="relative bg-[#16161E] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <SectionHead eyebrow="THE FOUNDERS' MOAT" title="Four disciplines. One forecasting engine." />
+          <SectionHead
+            eyebrow="THE FOUNDERS' MOAT"
+            title={<>Four disciplines. <Grad>One forecasting engine</Grad>.</>}
+          />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {FOUNDERS.map((f) => (
               <Card key={f.name} className="group h-full p-6 sm:p-7">
