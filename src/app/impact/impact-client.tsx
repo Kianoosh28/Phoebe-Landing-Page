@@ -417,15 +417,33 @@ function DashboardInner() {
               </p>
             </div>
 
-            <div className="mt-8">
+            {/* Dual-vector hero CTA — full flex runway so both buttons sit side-by-side. */}
+            <div className="mt-8 flex w-full max-w-2xl flex-col gap-4 sm:flex-row sm:items-start">
+              {/* Pilot vector — enterprise access (cyan). */}
               <button
                 type="button"
                 onClick={openPilot}
-                className="impact-cta inline-flex items-center border border-transparent px-7 py-3.5 font-mono text-sm font-bold tracking-[0.12em] text-black"
+                className="impact-cta inline-flex flex-1 items-center justify-center border border-transparent px-7 py-3.5 font-mono text-sm font-bold tracking-[0.12em] text-black"
                 style={{ backgroundColor: A }}
               >
                 REQUEST PRIVATE ENGINE ACCESS
               </button>
+
+              {/* Forecaster vector — community intake (amethyst). */}
+              <div className="flex flex-1 flex-col">
+                <button
+                  type="button"
+                  onClick={openNetwork}
+                  title="Great foresight cannot be built in isolation. Every perspective holds a critical piece of the structural puzzle. We fuse distributed human wisdom to filter out data noise and uncover systemic truth."
+                  className="impact-cta-amethyst inline-flex w-full items-center justify-center border px-7 py-3.5 font-mono text-sm font-bold tracking-[0.12em]"
+                  style={{ borderColor: M, color: MG }}
+                >
+                  JOIN THE FORESIGHT NETWORK
+                </button>
+                <p className="mt-2 font-mono text-[11px] tracking-[0.16em]" style={{ color: MG }}>
+                  [ DETECT FRICTION // STAKE CONVICTION ]
+                </p>
+              </div>
             </div>
           </motion.div>
 
