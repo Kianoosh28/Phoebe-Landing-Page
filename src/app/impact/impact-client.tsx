@@ -438,10 +438,10 @@ function DashboardInner() {
                   className="impact-cta-amethyst inline-flex w-full items-center justify-center border px-7 py-3.5 font-mono text-sm font-bold tracking-[0.12em]"
                   style={{ borderColor: M, color: MG }}
                 >
-                  JOIN THE FORESIGHT NETWORK
+                  BUILD THE GREATER WISDOM
                 </button>
                 <p className="mt-2 font-mono text-[11px] tracking-[0.16em]" style={{ color: MG }}>
-                  [ DETECT FRICTION // STAKE CONVICTION ]
+                  [ YOUR INSIGHT IS PRICELESS ]
                 </p>
               </div>
             </div>
@@ -719,10 +719,10 @@ function DashboardInner() {
                 className="impact-cta-amethyst inline-flex w-full items-center justify-center border px-7 py-3.5 font-mono text-sm font-bold tracking-[0.14em]"
                 style={{ borderColor: M, color: MG }}
               >
-                JOIN THE FORESIGHT NETWORK
+                BUILD THE GREATER WISDOM
               </button>
               <p className="mt-3 font-mono text-[11px] tracking-[0.16em]" style={{ color: MG }}>
-                [ DETECT FRICTION // STAKE CONVICTION ]
+                [ YOUR INSIGHT IS PRICELESS ]
               </p>
               <p className="mt-2 text-[13px] leading-relaxed text-zinc-500">
                 Great foresight cannot be built in isolation. Every perspective
