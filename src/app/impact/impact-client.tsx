@@ -8,10 +8,18 @@ import { Download, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/logo";
 import { ImpactPilotProvider, useImpactPilot } from "./impact-pilot";
+import {
+  ForesightNetworkProvider,
+  useForesightNetwork,
+} from "./foresight-network";
 
 /* Electric cyan technical palette — the impact subdomain's primary color. */
 const A = "#00F0FF";
 const AG = "#5CF6FF";
+
+/* Brand amethyst highlights — the Foresight Network (community) accent. */
+const M = "#9966CC";
+const MG = "#B692DB";
 
 const SCENARIOS = [
   {
@@ -333,13 +341,16 @@ function ImpactNav() {
 export function ImpactDashboard() {
   return (
     <ImpactPilotProvider>
-      <DashboardInner />
+      <ForesightNetworkProvider>
+        <DashboardInner />
+      </ForesightNetworkProvider>
     </ImpactPilotProvider>
   );
 }
 
 function DashboardInner() {
   const { open: openPilot } = useImpactPilot();
+  const { open: openNetwork } = useForesightNetwork();
 
   return (
     <div className="font-sans text-zinc-100">
@@ -350,6 +361,11 @@ function DashboardInner() {
         .impact-scan { animation: impactScan 3.4s linear infinite; }
         .impact-cta { transition: box-shadow .2s ease, opacity .2s ease; }
         .impact-cta:hover { box-shadow: 0 0 0 1px ${AG}, 0 0 26px -4px ${A}; opacity: .95; }
+        .impact-cta-amethyst { transition: box-shadow .2s ease, color .2s ease, background-color .2s ease, border-color .2s ease; }
+        .impact-cta-amethyst:hover { background-color: ${M}1f; border-color: ${MG}; color: #fff; box-shadow: 0 0 0 1px ${MG}, 0 0 28px -4px ${M}; }
+        .impact-cta-amethyst:focus-visible { outline: none; box-shadow: 0 0 0 2px ${MG}, 0 0 28px -4px ${M}; }
+        .foresight-field:hover { border-color: ${MG} !important; }
+        .foresight-field:focus { border-color: ${M} !important; box-shadow: 0 0 0 2px ${M}40; }
       `}</style>
 
       <ImpactNav />
@@ -634,21 +650,69 @@ function DashboardInner() {
       <section className="relative bg-[#050505] py-20">
         <div className="mx-auto max-w-7xl px-5 text-center sm:px-8">
           <div className="font-mono text-[11px] tracking-[0.28em]" style={{ color: A }}>
-            INITIALIZE PRIVATE ENTERPRISE PILOT // ENTER CREDENTIALS
+            INITIALIZE FORESIGHT PROTOCOL // SELECT ACCESS VECTOR
           </div>
           <p className="mx-auto mt-4 max-w-xl text-sm text-zinc-500">
-            Request access to the engine. Deploy a private forecasting pilot
-            scoped to your sector.
+            Two ways in. Deploy a private enterprise pilot, or join the
+            distributed network of forecasters that powers the signal.
           </p>
-          <div className="mt-8">
-            <button
-              type="button"
-              onClick={openPilot}
-              className="impact-cta inline-flex items-center px-7 py-3.5 font-mono text-sm font-bold tracking-[0.14em] text-black"
-              style={{ backgroundColor: A }}
+
+          {/* Dual-pillar CTA — mirrors the primary landing page's two-button split. */}
+          <div className="mx-auto mt-10 grid max-w-3xl grid-cols-1 gap-4 text-left sm:grid-cols-2 sm:gap-5">
+            {/* Pillar 1 — Enterprise access (cyan), wired to the pilot handler. */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5 }}
+              className="flex h-full flex-col"
             >
-              ENGAGE SIMULATOR CORE
-            </button>
+              <button
+                type="button"
+                onClick={openPilot}
+                title="Deploy a private forecasting pilot scoped to your sector."
+                className="impact-cta inline-flex w-full items-center justify-center px-7 py-3.5 font-mono text-sm font-bold tracking-[0.14em] text-black"
+                style={{ backgroundColor: A }}
+              >
+                ENGAGE SIMULATOR CORE
+              </button>
+              <p className="mt-3 font-mono text-[11px] tracking-[0.16em]" style={{ color: AG }}>
+                [ DEPLOY PRIVATE SECTOR PILOT ]
+              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-zinc-500">
+                The enterprise access vector. Hand us a mandate and we return a
+                merit-weighted forecast, scoped and confidential, for your
+                organization.
+              </p>
+            </motion.div>
+
+            {/* Pillar 2 — Collective wisdom (amethyst), wired to participant intake. */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="flex h-full flex-col"
+            >
+              <button
+                type="button"
+                onClick={openNetwork}
+                title="Great foresight cannot be built in isolation. Every perspective holds a critical piece of the structural puzzle. We fuse distributed human wisdom to filter out data noise and uncover systemic truth."
+                className="impact-cta-amethyst inline-flex w-full items-center justify-center border px-7 py-3.5 font-mono text-sm font-bold tracking-[0.14em]"
+                style={{ borderColor: M, color: MG }}
+              >
+                JOIN THE FORESIGHT NETWORK
+              </button>
+              <p className="mt-3 font-mono text-[11px] tracking-[0.16em]" style={{ color: MG }}>
+                [ DETECT FRICTION // STAKE CONVICTION ]
+              </p>
+              <p className="mt-2 text-[13px] leading-relaxed text-zinc-500">
+                Great foresight cannot be built in isolation. Every perspective
+                holds a critical piece of the structural puzzle. We fuse
+                distributed human wisdom to filter out data noise and uncover
+                systemic truth.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
