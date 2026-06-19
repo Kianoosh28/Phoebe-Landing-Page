@@ -28,8 +28,8 @@ const M = "#9966CC";
 const MG = "#B692DB";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
-/* Shared community / participant intake endpoint (the "Prediction Waitlist"). */
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbdwvdne";
+/* Dedicated Foresight Network participant intake endpoint. */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mykarenv";
 
 type ForesightNetworkCtx = {
   open: () => void;
